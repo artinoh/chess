@@ -8,10 +8,10 @@ Bishop::Bishop(char color) {
     this->color = color;
 }
 
-std::vector<Square> Bishop::getTargetSquares(const Square &start) {
-    return std::vector<Square>();
-}
-
 int Bishop::getPieceType() const {
     return BISHOP;
+}
+
+std::vector<Square> Bishop::getTargetSquares(const Square &start, const std::array<std::array<Piece *, 8>, 8> &board, char startColor, char oppositeColor) {
+    return {};
 }

@@ -12,15 +12,19 @@
 
 struct Square {
     int row, col;
+    bool enPassant;
+    bool castle;
     Square() : row(0), col(0) {}
     Square(int inRow, int inCol) : row(inRow), col(inCol) {}
     bool operator==(const Square& b) const {
         return (row == b.row && col == b.col);
     }
+    Square& operator=(const Square& b) = default;
 };
 
 struct Move {
     Square start, target;
+    bool tookPiece = false;
     Move() = default;
     Move(Square inStart, Square inTarget) : start(inStart), target(inTarget) {}
     bool operator ==(const Move& b) const {
@@ -51,8 +55,9 @@ public:
     char getColor () const;
     void move();
     bool getHasMoved() const;
-    virtual std::vector<Square> getTargetSquares(const Square& start);
+    virtual std::vector<Square> getTargetSquares(const Square& start, const std::array<std::array<Piece*, 8>, 8>& board, char startColor, char oppositeColor);
     virtual int getPieceType() const;
+
 
 };
 

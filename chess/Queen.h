@@ -8,7 +8,7 @@ class Queen : public Piece {
 public:
     Queen() = default;
     explicit Queen(char color);
-    std::vector<Square> getTargetSquares(const Square& start) override;
+    std::vector<Square> getTargetSquares(const Square& start, const std::array<std::array<Piece*, 8>, 8>& board, char startColor, char oppositeColor) override;
     int getPieceType() const override;
 };
 

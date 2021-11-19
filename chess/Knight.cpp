@@ -8,10 +8,10 @@ Knight::Knight(char color) {
     this->color = color;
 }
 
-std::vector<Square> Knight::getTargetSquares(const Square &start) {
-    return std::vector<Square>();
-}
-
 int Knight::getPieceType() const {
     return KNIGHT;
+}
+
+std::vector<Square> Knight::getTargetSquares(const Square &start, const std::array<std::array<Piece *, 8>, 8> &board, char startColor, char oppositeColor) {
+    return {};
 }

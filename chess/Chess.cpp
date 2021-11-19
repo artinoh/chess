@@ -8,18 +8,7 @@ Chess::Chess(gameDataRef inData) : data(std::move(inData)) {
     prepareBoardToDraw();
 }
 
-
-void Chess::draw(sf::RenderTarget &window, sf::RenderStates states) const {
-    for (int i = 0; i < 8; i++) {
-        for (int j = 0; j < 8; j++) {
-            window.draw(squaresBoard[i][j]);
-            window.draw(spriteBoard[i][j]);
-        }
-    }
-}
-
-
-void Chess::initBoardSquares() {
+void Chess::drawCleanBoard() {
     int squareSide = SCREEN_HEIGHT/8;
     sf::Vector2f squareSize(squareSide, squareSide);
     sf::Color whiteSquareColor(255,180,100);
@@ -34,6 +23,26 @@ void Chess::initBoardSquares() {
             }
             squaresBoard[i][j].setSize(squareSize);
             squaresBoard[i][j].setPosition(squareSize.x * j, squareSize.y * i);
+        }
+    }
+}
+
+void Chess::draw(sf::RenderTarget &window, sf::RenderStates states) const {
+    for (int i = 0; i < 8; i++) {
+        for (int j = 0; j < 8; j++) {
+            window.draw(squaresBoard[i][j]);
+            window.draw(spriteBoard[i][j]);
+        }
+    }
+}
+
+void Chess::initBoardSquares() {
+    int squareSide = SCREEN_HEIGHT/8;
+    sf::Vector2f squareSize(squareSide, squareSide);
+    drawCleanBoard();
+
+    for (int i=0; i<8; i++) {
+        for (int j=0; j<8; j++) {
             spriteBoard[i][j].setPosition(squareSize.x*j, squareSize.y*i);
             spriteBoard[i][j].setTexture(data->assets.getTexture("Empty Square"));
         }
@@ -94,9 +103,6 @@ void Chess::initPieces() {
             pieceBoard[i][j] = &emptyPiece;
         }
     }
-
-    printBoard();
-    prepareBoardToDraw();
 }
 
 void Chess::prepareBoardToDraw() {
@@ -159,23 +165,113 @@ void Chess::prepareBoardToDraw() {
     }
 }
 
-bool Chess::processPlayerMove(const Move &move) {
-    std::cout << move.start.row << " " << move.start.col << std::endl;
-    std::cout << move.target.row << " " << move.target.col << std::endl;
-    pieceBoard[move.target.row][move.target.col] = pieceBoard[move.start.row][move.start.col];
-    pieceBoard[move.start.row][move.start.col] = &emptyPiece;
-    printBoard();
+void Chess::drawPotentialMoves(const Square &start) {
+    std::vector<Square> potentialMoves = getPotentialMoves(start);
+    sf::Color potentialMoveColor(255,100,50);
+    for (int i=0; i<potentialMoves.size(); i++)
+        squaresBoard[potentialMoves[i].row][potentialMoves[i].col].setFillColor(potentialMoveColor);
+}
+
+bool Chess::processPlayerMove(Move &move) {
+    std::vector<Square> legalMoves = getPotentialMoves(move.start);
+    char currentPieceType = pieceBoard[move.start.row][move.start.col]->getPieceType();
+    char currentPieceColor = pieceBoard[move.start.row][move.start.col]->getColor();
+
+    bool moveFound = false;
+    for (int i=0; i<legalMoves.size(); i++) {
+        if (move.target == legalMoves[i]) {
+            moveFound = true;
+            move.target = legalMoves[i];
+        }
+    }
+
+    if (moveFound) {
+        //If Pawn has double moved
+        if (currentPieceType == PAWN) {
+            if (abs(move.start.row - move.target.row) == 2) {
+                Pawn *thisPawn = dynamic_cast<Pawn *>(pieceBoard[move.start.row][move.start.col]);
+                thisPawn->setHasDoubledMoved();
+            }
+        }
+        //En Passant
+        if (move.target.enPassant) {
+            if (currentPieceColor == 'W') {
+                pieceBoard[move.target.row+1][move.target.col] = &emptyPiece;
+            }
+            else if (currentPieceColor == 'B') {
+                pieceBoard[move.target.row- 1][move.target.col] = &emptyPiece;
+            }
+        }
+
+        if (pieceBoard[move.target.row][move.target.col]->getPieceType() != EMPTY) {
+            move.tookPiece = true;
+            piecesTaken.push_back(pieceBoard[move.target.row][move.target.col]);
+        }
+
+
+        //Complete Move
+        pieceBoard[move.target.row][move.target.col] = pieceBoard[move.start.row][move.start.col];
+        pieceBoard[move.start.row][move.start.col] = &emptyPiece;
+        moves.push_back(move);
+    }
+
     prepareBoardToDraw();
     return true;
 }
 
+std::vector<Square> Chess::getPotentialMoves(const Square &start) {
+    std::vector<Square> potentialMoves;
+    char startColor = pieceBoard[start.row][start.col]->getColor();
+    char oppositeColor;
 
-void Chess::printBoard() const {
-    for (int i=0; i < 8; i++) {
-        for (int j=0; j<8; j++ ){
-            std::cout << pieceBoard[i][j]->getPieceType() << " ";
+    if (startColor == 'W')
+        oppositeColor = 'B';
+    else if (startColor == 'B')
+        oppositeColor = 'W';
+    else
+        oppositeColor = startColor;
+
+    potentialMoves = pieceBoard[start.row][start.col]->getTargetSquares(start, pieceBoard, startColor, oppositeColor);
+    return potentialMoves;
+}
+
+void Chess::undoMove() {
+    if (!moves.empty()) {
+        Move lastMove = moves.back();
+        moves.pop_back();
+        pieceBoard[lastMove.start.row][lastMove.start.col] = pieceBoard[lastMove.target.row][lastMove.target.col];
+        if (lastMove.tookPiece) {
+            piecesTaken.pop_back();
+            if (lastMove.target.enPassant) {
+                if (pieceBoard[lastMove.start.row][lastMove.start.col]->getColor() == 'W') {
+                    pieceBoard[lastMove.target.row+1][lastMove.target.col] = piecesTaken.back();
+                }
+                else {
+                    pieceBoard[lastMove.target.row-1][lastMove.target.col] = piecesTaken.back();
+                }
+            }
+            else {
+                pieceBoard[lastMove.target.row][lastMove.target.col] = piecesTaken.back();
+            }
         }
-        std::cout << std::endl;
+        else {
+            pieceBoard[lastMove.target.row][lastMove.target.col] = &emptyPiece;
+        }
+        prepareBoardToDraw();
+    }
+}
+
+Chess::~Chess() {
+    while (!piecesTaken.empty()) {
+        delete piecesTaken.back();
+        piecesTaken.pop_back();
+    }
+    for (int i=0; i<8; i++) {
+        for (int j=0; j<8; j++) {
+            if (pieceBoard[i][j]) {
+                delete pieceBoard[i][j];
+            }
+        }
     }
 }
 

@@ -4,10 +4,10 @@ Rook::Rook(char color) {
     this->color = color;
 }
 
-std::vector<Square> Rook::getTargetSquares(const Square &start) {
-    return std::vector<Square>();
-}
-
 int Rook::getPieceType() const {
     return ROOK;
+}
+
+std::vector<Square> Rook::getTargetSquares(const Square &start, const std::array<std::array<Piece *, 8>, 8> &board, char startColor, char oppositeColor) {
+    return {};
 }

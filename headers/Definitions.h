@@ -10,8 +10,6 @@
 #define MAIN_MENU_PLAY_BUTTON "assets/play_button.png"
 #define EXIT_BUTTON_FILE_PATH "assets/exit_button.png"
 
-#define CHESS_BOARD "assets/chess_board.png"
-
 
 #define BLACK_KING_PATH "assets/black_king.png"
 #define BLACK_QUEEN_PATH "assets/black_queen.png"

@@ -18,26 +18,33 @@
 class Chess : public sf::Drawable {
 
 private:
-    Piece* pieceBoard[8][8];
+    std::array<std::array<Piece*, 8>, 8> pieceBoard;
     sf::Sprite spriteBoard[8][8];
     sf::RectangleShape squaresBoard[8][8];
     sf::Sprite temp;
     gameDataRef data;
     Piece emptyPiece;
+    std::deque<Move> moves;
+    std::deque<Piece*> piecesTaken;
 
+
+    std::vector<Square> getPotentialMoves(const Square& start);
     void initPieces();
     void initBoardSquares();
     void prepareBoardToDraw();
-    void printBoard() const;
+
 
 public:
+
     Chess() = default;
+    ~Chess();
     explicit Chess(gameDataRef inData);
-
-    bool processPlayerMove(const Move& move);
-
+    bool processPlayerMove(Move& move);
 
     virtual void draw(sf::RenderTarget& window, sf::RenderStates states) const;
+    void drawPotentialMoves(const Square& start);
+    void drawCleanBoard();
+    void undoMove();
 };
 
 

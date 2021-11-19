@@ -8,10 +8,10 @@ Queen::Queen(char color) {
     this->color = color;
 }
 
-std::vector<Square> Queen::getTargetSquares(const Square &start) {
-    return std::vector<Square>();
-}
-
 int Queen::getPieceType() const {
     return QUEEN;
+}
+
+std::vector<Square> Queen::getTargetSquares(const Square &start, const std::array<std::array<Piece *, 8>, 8> &board, char startColor, char oppositeColor) {
+    return {};
 }

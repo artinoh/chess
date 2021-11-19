@@ -1,7 +1,6 @@
 #include "Piece.h"
 
-Piece::Piece() {
-
+Piece::Piece() : color('N') {
 }
 
 void Piece::setColor(char color) {
@@ -20,7 +19,7 @@ bool Piece::getHasMoved() const {
     return hasMoved;
 }
 
-std::vector<Square> Piece::getTargetSquares(const Square &start) {
+std::vector<Square> Piece::getTargetSquares(const Square &start, const std::array<std::array<Piece*, 8>, 8>& board , char startColor, char oppositeColor) {
     return {};
 }
 

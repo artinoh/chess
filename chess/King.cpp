@@ -4,10 +4,10 @@ King::King(char color) {
     this->color = color;
 }
 
-std::vector<Square> King::getTargetSquares(const Square &start) {
-    return std::vector<Square>();
-}
-
 int King::getPieceType() const {
     return KING;
+}
+
+std::vector<Square> King::getTargetSquares(const Square &start, const std::array<std::array<Piece *, 8>, 8> &board, char startColor, char oppositeColor) {
+    return {};
 }

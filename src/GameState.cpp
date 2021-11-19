@@ -16,10 +16,11 @@ void GameState::handleInput() {
                 break;
             case sf::Event::MouseButtonPressed:
                 mouseClickPos = sf::Mouse::getPosition(data->window);
+                chess.drawPotentialMoves({mouseClickPos.y/100,mouseClickPos.x/100});
                 break;
             case sf::Event::MouseButtonReleased:
                 mouseReleasePos = sf::Mouse::getPosition(data->window);
-                if (mouseClickPos.x != 0 && mouseClickPos.y != 0 && mouseReleasePos.x != 4 && mouseReleasePos.y != 2) {
+                if (mouseClickPos.x != 0 && mouseClickPos.y != 0 && mouseReleasePos.x != 4 && mouseReleasePos.y != 2 && mouseClickPos != mouseReleasePos) {
                     int startRow, startCol, endRow, endCol;
                     startRow = int(mouseClickPos.y / 100);
                     startCol = int(mouseClickPos.x / 100);
@@ -28,6 +29,10 @@ void GameState::handleInput() {
                     Move desiredMove = {{startRow,startCol},{endRow,endCol}};
                     chess.processPlayerMove(desiredMove);
                 }
+                chess.drawCleanBoard();
+                break;
+            case sf::Event::KeyPressed:
+                chess.undoMove();
                 break;
         }
     }
