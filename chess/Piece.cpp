@@ -11,7 +11,7 @@ char Piece::getColor() const {
     return color;
 }
 
-void Piece::move() {
+void Piece::pieceHasMoved() {
     hasMoved = true;
 }
 

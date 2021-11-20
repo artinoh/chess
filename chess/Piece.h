@@ -53,7 +53,7 @@ public:
     Piece();
     void setColor(char color);
     char getColor () const;
-    void move();
+    void pieceHasMoved();
     bool getHasMoved() const;
     virtual std::vector<Square> getTargetSquares(const Square& start, const std::array<std::array<Piece*, 8>, 8>& board, char startColor, char oppositeColor, const Move& lastMove);
     virtual int getPieceType() const;

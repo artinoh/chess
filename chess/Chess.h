@@ -21,6 +21,7 @@ private:
     std::array<std::array<Piece*, 8>, 8> pieceBoard;
     sf::Sprite spriteBoard[8][8];
     sf::RectangleShape squaresBoard[8][8];
+    std::vector<sf::RectangleShape> potentialSquares;
     sf::Sprite temp;
     gameDataRef data;
     Piece emptyPiece;
@@ -44,6 +45,7 @@ public:
     virtual void draw(sf::RenderTarget& window, sf::RenderStates states) const;
     void drawPotentialMoves(const Square& start);
     void drawCleanBoard();
+    void clearPotentialSquares();
 };
 
 

@@ -25,12 +25,20 @@ void Chess::drawCleanBoard() {
             squaresBoard[i][j].setPosition(squareSize.x * j, squareSize.y * i);
         }
     }
+    potentialSquares.clear();
 }
 
 void Chess::draw(sf::RenderTarget &window, sf::RenderStates states) const {
     for (int i = 0; i < 8; i++) {
         for (int j = 0; j < 8; j++) {
             window.draw(squaresBoard[i][j]);
+        }
+    }
+    for (int i=0; i<potentialSquares.size(); i++) {
+        window.draw(potentialSquares[i]);
+    }
+    for (int i = 0; i < 8; i++) {
+        for (int j = 0; j < 8; j++) {
             window.draw(spriteBoard[i][j]);
         }
     }
@@ -166,10 +174,19 @@ void Chess::prepareBoardToDraw() {
 }
 
 void Chess::drawPotentialMoves(const Square &start) {
+    potentialSquares.clear();
+    int squareSide = SCREEN_HEIGHT/8;
     std::vector<Square> potentialMoves = getPotentialMoves(start);
-    sf::Color potentialMoveColor(255,100,50);
-    for (int i=0; i<potentialMoves.size(); i++)
-        squaresBoard[potentialMoves[i].row][potentialMoves[i].col].setFillColor(potentialMoveColor);
+    sf::Color potentialMoveColor(255,0,0, 100);
+    for (int i=0; i<potentialMoves.size(); i++) {
+        int row = potentialMoves[i].row;
+        int col = potentialMoves[i].col;
+        sf::RectangleShape tempSquare;
+        tempSquare.setFillColor(potentialMoveColor);
+        tempSquare.setSize(squaresBoard[row][col].getSize());
+        tempSquare.setPosition(squaresBoard[row][col].getPosition());
+        potentialSquares.push_back(tempSquare);
+    }
 }
 
 bool Chess::processPlayerMove(Move &move) {
@@ -188,8 +205,9 @@ bool Chess::processPlayerMove(Move &move) {
 
     if (moveFound) {
         moves.push_back(move);
+        pieceBoard[move.start.row][move.start.col]->pieceHasMoved();
 
-        //Pawn Flag for double move
+        //Pawn Flag for double pieceHasMoved
         if (currentPieceType == PAWN) {
             if (abs(move.start.row - move.target.row) == 2) {
                 Pawn *thisPawn = dynamic_cast<Pawn *>(pieceBoard[move.start.row][move.start.col]);
@@ -261,6 +279,10 @@ std::vector<Square> Chess::getPotentialMoves(const Square &start) {
         oppositeColor = startColor;
 
     potentialMoves = pieceBoard[start.row][start.col]->getTargetSquares(start, pieceBoard, startColor, oppositeColor, moves.back());
+    std::cout << "Start Square Row: " << start.row << " Start Square Col: " << start.col << std::endl;
+    for (int i = 0; i < potentialMoves.size(); i++) {
+        std::cout << "Potential Row: " << potentialMoves[i].row << " Potential Col: " << potentialMoves[i].col << std::endl;
+    }
     return potentialMoves;
 }
 
@@ -273,6 +295,10 @@ Chess::~Chess() {
             }
         }
     }
+}
+
+void Chess::clearPotentialSquares() {
+    potentialSquares.clear();
 }
 
 
