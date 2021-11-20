@@ -80,9 +80,6 @@ std::vector<Square> Rook::getTargetSquares(const Square &start, const std::array
         tempCol--;
     }
 
-    for (int i=0; i<rookMoves.size(); i++) {
-        rookMoves[i].enPassant = false;
-    }
 
     return rookMoves;
 }

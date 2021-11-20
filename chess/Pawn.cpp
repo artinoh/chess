@@ -94,11 +94,43 @@ int Pawn::getPieceType() const {
     return PAWN;
 }
 
-void Pawn::setHasDoubledMoved() {
-    hasDoubleMoved = true;
+void Pawn::setHasDoubledMoved(bool doubleMoved) {
+    hasDoubleMoved = doubleMoved;
 }
 
 bool Pawn::getHasDoubleMoved() const {
     return hasDoubleMoved;
 }
 
+std::vector<Square> Pawn::getAttackingSquares(const Square &start, const std::array<std::array<Piece*, 8>, 8>& board) {
+    std::vector<Square> attackingSquares;
+    Square squareToCheck;
+    if (board[start.row][start.col]->getColor() == 'W') {
+        squareToCheck.row = start.row-1;
+        squareToCheck.col = start.col-1;
+        if (squareIsInBounds(squareToCheck))
+            attackingSquares.push_back(squareToCheck);
+        squareToCheck.row = start.row-1;
+        squareToCheck.col = start.col-1;
+        if (squareIsInBounds(squareToCheck))
+            attackingSquares.push_back(squareToCheck);
+    }
+    else if (board[start.row][start.col]->getColor() == 'B') {
+        squareToCheck.row = start.row+1;
+        squareToCheck.col = start.col-1;
+        if (squareIsInBounds(squareToCheck))
+            attackingSquares.push_back(squareToCheck);
+        squareToCheck.row = start.row+1;
+        squareToCheck.col = start.col-1;
+        if (squareIsInBounds(squareToCheck))
+            attackingSquares.push_back(squareToCheck);
+    }
+    return attackingSquares;
+}
+
+bool Pawn::squareIsInBounds(const Square &square) {
+    if (square.row >= 8 || square.row < 0 || square.col >= 8 || square.col < 0) {
+        return false;
+    }
+    return true;
+}

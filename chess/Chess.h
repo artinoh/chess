@@ -25,18 +25,21 @@ private:
     sf::Sprite temp;
     gameDataRef data;
     Piece emptyPiece;
+    std::deque<std::array<std::array<Piece*, 8>, 8>> previousPositions;
     std::deque<Move> moves;
-    std::deque<int> piecesTaken;
 
 
     std::vector<Square> getPotentialMoves(const Square& start);
     void initPieces();
     void initBoardSquares();
     void prepareBoardToDraw();
+    void castle(const Square& target, char color);
+    std::vector<std::vector<Square>> getAllAttacking(char teamColor);
+    Square findBlackKing() const;
+    Square findWhiteKing() const;
 
 
 public:
-
     Chess() = default;
     ~Chess();
     explicit Chess(gameDataRef inData);
@@ -45,7 +48,8 @@ public:
     virtual void draw(sf::RenderTarget& window, sf::RenderStates states) const;
     void drawPotentialMoves(const Square& start);
     void drawCleanBoard();
-    void clearPotentialSquares();
+    void undoMove();
+
 };
 
 

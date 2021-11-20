@@ -12,8 +12,8 @@
 
 struct Square {
     int row, col;
-    bool enPassant;
-    bool castle;
+    bool enPassant = false;
+    bool castle = false;
     Square() : row(0), col(0) {}
     Square(int inRow, int inCol) : row(inRow), col(inCol) {}
     bool operator==(const Square& b) const {
@@ -53,7 +53,7 @@ public:
     Piece();
     void setColor(char color);
     char getColor () const;
-    void pieceHasMoved();
+    void setHasMoved(bool moved);
     bool getHasMoved() const;
     virtual std::vector<Square> getTargetSquares(const Square& start, const std::array<std::array<Piece*, 8>, 8>& board, char startColor, char oppositeColor, const Move& lastMove);
     virtual int getPieceType() const;
