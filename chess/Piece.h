@@ -55,7 +55,7 @@ public:
     char getColor () const;
     void move();
     bool getHasMoved() const;
-    virtual std::vector<Square> getTargetSquares(const Square& start, const std::array<std::array<Piece*, 8>, 8>& board, char startColor, char oppositeColor);
+    virtual std::vector<Square> getTargetSquares(const Square& start, const std::array<std::array<Piece*, 8>, 8>& board, char startColor, char oppositeColor, const Move& lastMove);
     virtual int getPieceType() const;
 
 

@@ -176,6 +176,7 @@ bool Chess::processPlayerMove(Move &move) {
     std::vector<Square> legalMoves = getPotentialMoves(move.start);
     char currentPieceType = pieceBoard[move.start.row][move.start.col]->getPieceType();
     char currentPieceColor = pieceBoard[move.start.row][move.start.col]->getColor();
+    Piece* tempPieceHolder = nullptr;
 
     bool moveFound = false;
     for (int i=0; i<legalMoves.size(); i++) {
@@ -186,37 +187,65 @@ bool Chess::processPlayerMove(Move &move) {
     }
 
     if (moveFound) {
-        //If Pawn has double moved
+        moves.push_back(move);
+
+        //Pawn Flag for double move
         if (currentPieceType == PAWN) {
             if (abs(move.start.row - move.target.row) == 2) {
                 Pawn *thisPawn = dynamic_cast<Pawn *>(pieceBoard[move.start.row][move.start.col]);
                 thisPawn->setHasDoubledMoved();
             }
         }
-        //En Passant
-        if (move.target.enPassant) {
-            if (currentPieceColor == 'W') {
-                pieceBoard[move.target.row+1][move.target.col] = &emptyPiece;
-            }
-            else if (currentPieceColor == 'B') {
-                pieceBoard[move.target.row- 1][move.target.col] = &emptyPiece;
-            }
-        }
-
-        if (pieceBoard[move.target.row][move.target.col]->getPieceType() != EMPTY) {
+        //Handle En Passant and get pointer to piece being removed
+        if (pieceBoard[move.target.row][move.target.col]->getPieceType() != EMPTY || move.target.enPassant) {
             move.tookPiece = true;
-            piecesTaken.push_back(pieceBoard[move.target.row][move.target.col]);
+            //En Passant
+            if (move.target.enPassant) {
+                move.target.enPassant = false;
+                std::cout << "IN EN PASSANT" << std::endl;
+                if (currentPieceColor == 'W') {
+                    std::cout << "IN WHITE EN PASSANT" << std::endl;
+                    tempPieceHolder = pieceBoard[move.target.row+1][move.target.col];
+                    pieceBoard[move.target.row+1][move.target.col] = &emptyPiece;
+                    piecesTaken.push_back(PAWN);
+                }
+                else if (currentPieceColor == 'B') {
+                    std::cout << "IN BLACK EN PASSANT" << std::endl;
+                    tempPieceHolder = pieceBoard[move.target.row-1][move.target.col];
+                    pieceBoard[move.target.row- 1][move.target.col] = &emptyPiece;
+                    piecesTaken.push_back(PAWN);
+                }
+            }
+            else {
+                piecesTaken.push_back(pieceBoard[move.target.row][move.target.col]->getPieceType());
+                tempPieceHolder = pieceBoard[move.target.row][move.target.col];
+            }
         }
-
 
         //Complete Move
         pieceBoard[move.target.row][move.target.col] = pieceBoard[move.start.row][move.start.col];
         pieceBoard[move.start.row][move.start.col] = &emptyPiece;
-        moves.push_back(move);
-    }
 
-    prepareBoardToDraw();
-    return true;
+
+        //Queening Pawn
+        if (currentPieceType == PAWN && currentPieceColor == 'W' && move.target.row == 0) {
+            delete pieceBoard[move.target.row][move.target.col];
+            pieceBoard[move.target.row][move.target.col] = new Queen('W');
+        }
+        else if (currentPieceType == PAWN && currentPieceColor == 'B' && move.target.row == 7) {
+            delete pieceBoard[move.target.row][move.target.col];
+            pieceBoard[move.target.row][move.target.col] = new Queen('B');
+        }
+
+        delete tempPieceHolder;
+        tempPieceHolder = nullptr;
+
+        prepareBoardToDraw();
+        return true;
+    }
+    else {
+        return false;
+    }
 }
 
 std::vector<Square> Chess::getPotentialMoves(const Square &start) {
@@ -231,41 +260,12 @@ std::vector<Square> Chess::getPotentialMoves(const Square &start) {
     else
         oppositeColor = startColor;
 
-    potentialMoves = pieceBoard[start.row][start.col]->getTargetSquares(start, pieceBoard, startColor, oppositeColor);
+    potentialMoves = pieceBoard[start.row][start.col]->getTargetSquares(start, pieceBoard, startColor, oppositeColor, moves.back());
     return potentialMoves;
 }
 
-void Chess::undoMove() {
-    if (!moves.empty()) {
-        Move lastMove = moves.back();
-        moves.pop_back();
-        pieceBoard[lastMove.start.row][lastMove.start.col] = pieceBoard[lastMove.target.row][lastMove.target.col];
-        if (lastMove.tookPiece) {
-            piecesTaken.pop_back();
-            if (lastMove.target.enPassant) {
-                if (pieceBoard[lastMove.start.row][lastMove.start.col]->getColor() == 'W') {
-                    pieceBoard[lastMove.target.row+1][lastMove.target.col] = piecesTaken.back();
-                }
-                else {
-                    pieceBoard[lastMove.target.row-1][lastMove.target.col] = piecesTaken.back();
-                }
-            }
-            else {
-                pieceBoard[lastMove.target.row][lastMove.target.col] = piecesTaken.back();
-            }
-        }
-        else {
-            pieceBoard[lastMove.target.row][lastMove.target.col] = &emptyPiece;
-        }
-        prepareBoardToDraw();
-    }
-}
 
 Chess::~Chess() {
-    while (!piecesTaken.empty()) {
-        delete piecesTaken.back();
-        piecesTaken.pop_back();
-    }
     for (int i=0; i<8; i++) {
         for (int j=0; j<8; j++) {
             if (pieceBoard[i][j]) {

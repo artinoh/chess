@@ -8,7 +8,7 @@ Pawn::Pawn(char color) {
 
 
 
-std::vector<Square> Pawn::getTargetSquares(const Square &start, const std::array<std::array<Piece*, 8>, 8>& board, char startColor, char oppositeColor) {
+std::vector<Square> Pawn::getTargetSquares(const Square &start, const std::array<std::array<Piece*, 8>, 8>& board, char startColor, char oppositeColor, const Move& lastMove) {
 
     std::vector<Square> targetSquares;
     if (color == 'W') {
@@ -28,7 +28,8 @@ std::vector<Square> Pawn::getTargetSquares(const Square &start, const std::array
                 targetSquares.emplace_back(start.row-1,start.col-1);
             }
             if (start.row == 3) {
-                if (start.col - 1 >= 0 && board[start.row][start.col - 1]->getPieceType() == PAWN && board[start.row][start.col - 1]->getColor() == oppositeColor) {
+                if (start.col - 1 >= 0 && board[start.row][start.col - 1]->getPieceType() == PAWN && board[start.row][start.col - 1]->getColor() == oppositeColor
+                && lastMove.target.row == start.row && lastMove.target.col == start.col -1) {
                     Pawn *targetPawn = dynamic_cast<Pawn *>(board[start.row][start.col - 1]);
                     if (targetPawn->getHasDoubleMoved()) {
                         Square targetSquare(start.row-1, start.col-1);
@@ -36,7 +37,8 @@ std::vector<Square> Pawn::getTargetSquares(const Square &start, const std::array
                         targetSquares.push_back(targetSquare);
                     }
                 }
-                if (start.col + 1 < 8 && board[start.row][start.col + 1]->getPieceType() == PAWN && board[start.row][start.col + 1]->getColor() == oppositeColor) {
+                if (start.col + 1 < 8 && board[start.row][start.col + 1]->getPieceType() == PAWN && board[start.row][start.col + 1]->getColor() == oppositeColor
+                && lastMove.target.row == start.row && lastMove.target.col == start.col + 1) {
                     Pawn *targetPawn = dynamic_cast<Pawn *>(board[start.row][start.col + 1]);
                     if (targetPawn->getHasDoubleMoved()) {
                         Square targetSquare(start.row-1, start.col+1);
@@ -64,8 +66,8 @@ std::vector<Square> Pawn::getTargetSquares(const Square &start, const std::array
                 targetSquares.emplace_back(start.row+1,start.col-1);
             }
             if (start.row == 4) {
-                if (start.col-1 >= 0 && board[start.row][start.col - 1]->getPieceType() == PAWN &&
-                    board[start.row][start.col - 1]->getColor() == oppositeColor) {
+                if (start.col-1 >= 0 && board[start.row][start.col - 1]->getPieceType() == PAWN && board[start.row][start.col - 1]->getColor() == oppositeColor
+                && lastMove.target.row == start.row && lastMove.target.col == start.col - 1) {
                     Pawn *targetPawn = dynamic_cast<Pawn *>(board[start.row][start.col - 1]);
                     if (targetPawn->getHasDoubleMoved()) {
                         Square targetSquare(start.row+1, start.col-1);
@@ -73,9 +75,9 @@ std::vector<Square> Pawn::getTargetSquares(const Square &start, const std::array
                         targetSquares.push_back(targetSquare);
                     }
                 }
-                if (start.col+1 < 8 && board[start.row][start.col + 1]->getPieceType() == PAWN &&
-                    board[start.row][start.col + 1]->getColor() == oppositeColor) {
-                    Pawn *targetPawn = dynamic_cast<Pawn *>(board[start.row][start.col -+1]);
+                if (start.col+1 < 8 && board[start.row][start.col + 1]->getPieceType() == PAWN && board[start.row][start.col + 1]->getColor() == oppositeColor
+                && lastMove.target.row == start.row && lastMove.target.col == start.col + 1) {
+                    Pawn *targetPawn = dynamic_cast<Pawn *>(board[start.row][start.col + 1]);
                     if (targetPawn->getHasDoubleMoved()) {
                         Square targetSquare(start.row+1, start.col+1);
                         targetSquare.enPassant = true;
@@ -99,3 +101,4 @@ void Pawn::setHasDoubledMoved() {
 bool Pawn::getHasDoubleMoved() const {
     return hasDoubleMoved;
 }
+

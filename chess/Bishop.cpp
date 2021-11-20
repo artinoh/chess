@@ -12,6 +12,6 @@ int Bishop::getPieceType() const {
     return BISHOP;
 }
 
-std::vector<Square> Bishop::getTargetSquares(const Square &start, const std::array<std::array<Piece *, 8>, 8> &board, char startColor, char oppositeColor) {
+std::vector<Square> Bishop::getTargetSquares(const Square &start, const std::array<std::array<Piece *, 8>, 8> &board, char startColor, char oppositeColor, const Move& lastMove) {
     return {};
 }

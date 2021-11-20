@@ -25,7 +25,7 @@ private:
     gameDataRef data;
     Piece emptyPiece;
     std::deque<Move> moves;
-    std::deque<Piece*> piecesTaken;
+    std::deque<int> piecesTaken;
 
 
     std::vector<Square> getPotentialMoves(const Square& start);
@@ -44,7 +44,6 @@ public:
     virtual void draw(sf::RenderTarget& window, sf::RenderStates states) const;
     void drawPotentialMoves(const Square& start);
     void drawCleanBoard();
-    void undoMove();
 };
 
 

@@ -31,9 +31,6 @@ void GameState::handleInput() {
                 }
                 chess.drawCleanBoard();
                 break;
-            case sf::Event::KeyPressed:
-                chess.undoMove();
-                break;
         }
     }
 
