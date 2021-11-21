@@ -50,7 +50,7 @@ void GameState::handleInput() {
         }
     }
     else {
-        Move computerMove = chess.getComputerMove(true);
+        Move computerMove = chess.getComputerMove();
         chess.makeMove(computerMove);
         isPlayerTurn = !isPlayerTurn;
     }

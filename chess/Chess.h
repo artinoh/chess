@@ -15,6 +15,13 @@
 #include "Game.h"
 #include <random>
 #include <ctime>
+#include <chrono>
+using namespace std::chrono;
+
+struct MaterialCountEvaluation {
+    int whiteEval = 0;
+    int blackEval = 0;
+};
 
 class Chess : public sf::Drawable {
 
@@ -52,8 +59,9 @@ private:
     const int rookValue = 500;
     const int queenValue = 900;
     int evaluate(char teamColor);
-    int countMaterial(char teamColor);
+    MaterialCountEvaluation countMaterial();
     int minimax(int depth, bool isMax, int alpha, int beta);
+    std::vector<Move> getAllPossibleMoves(char teamColor);
 
 
 public:

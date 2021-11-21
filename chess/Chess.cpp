@@ -312,6 +312,7 @@ std::vector<Square> Chess::getLegalMovesFromSquare(const Square& start) {
     return legalTargets;
 }
 
+
 //checks if input move is contained in legal targets
 bool Chess::isLegalMove(Move &move) {
     std::vector<Square> legalTargets = getLegalMovesFromSquare(move.start);
@@ -536,6 +537,7 @@ bool Chess::isClickedOnWhitePiece(const Square &start) {
         return true;
     return false;
 }
+
 
 
 
