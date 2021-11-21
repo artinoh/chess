@@ -112,7 +112,7 @@ std::vector<Square> Pawn::getAttackingSquares(const Square &start, const std::ar
         if (squareIsInBounds(squareToCheck))
             attackingSquares.push_back(squareToCheck);
         squareToCheck.row = start.row-1;
-        squareToCheck.col = start.col-1;
+        squareToCheck.col = start.col+1;
         if (squareIsInBounds(squareToCheck))
             attackingSquares.push_back(squareToCheck);
     }
@@ -122,7 +122,7 @@ std::vector<Square> Pawn::getAttackingSquares(const Square &start, const std::ar
         if (squareIsInBounds(squareToCheck))
             attackingSquares.push_back(squareToCheck);
         squareToCheck.row = start.row+1;
-        squareToCheck.col = start.col-1;
+        squareToCheck.col = start.col+1;
         if (squareIsInBounds(squareToCheck))
             attackingSquares.push_back(squareToCheck);
     }

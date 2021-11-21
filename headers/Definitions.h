@@ -11,7 +11,7 @@
 #define QUIT_BUTTON_FILE_PATH "assets/quit_button.png"
 
 //Game Over
-#define PLAY_AGAIN_BUTTON "assets/play_again_button.png"
+#define PLAY_AGAIN_BUTTON "assets/play_again.png"
 #define STALEMATE_FILEPATH "assets/stalemate.png"
 #define BLACK_WON_FILEPATH "assets/black_won.png"
 #define WHITE_WON_FILEPATH "assets/white_won.png"

@@ -516,7 +516,7 @@ bool Chess::whiteIsCheckmated() {
     if (numBlackMovesAvailable == 0 && isKingAttacked('W')) {
         return true;
     }
-    return true;
+    return false;
 }
 
 bool Chess::stalemate() {

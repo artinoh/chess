@@ -23,6 +23,7 @@ void Game::init() {
     loadMainMenuAssets();
     loadPieceAssets();
     loadOtherAssets();
+    loadGameOverAssets();
 }
 
 void Game::loadMainMenuAssets() {
@@ -34,7 +35,7 @@ void Game::loadMainMenuAssets() {
 }
 
 void Game::loadGameOverAssets() {
-    this->data->assets.loadTexture("Play Again Button", PLAY_AGAIN_BUTTON);
+    this->data->assets.loadTexture("Play Again", PLAY_AGAIN_BUTTON);
     this->data->assets.loadTexture("White Won", WHITE_WON_FILEPATH);
     this->data->assets.loadTexture("Black Won", BLACK_WON_FILEPATH);
     this->data->assets.loadTexture("Stalemate", STALEMATE_FILEPATH);

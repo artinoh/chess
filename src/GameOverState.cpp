@@ -7,9 +7,8 @@
 GameOverState::GameOverState(gameDataRef inData, char result) : data(std::move(inData)), gameResult(result) {}
 
 void GameOverState::init() {
-    title.setTexture(data->assets.getTexture(("Title")));
     background.setTexture(data->assets.getTexture("Background"));
-    playAgainButton.setTexture(data->assets.getTexture("Play Button"));
+    playAgainButton.setTexture(data->assets.getTexture("Play Again"));
     quitButton.setTexture(data->assets.getTexture("Quit Button"));
 
     if (gameResult == 'W')
@@ -18,11 +17,12 @@ void GameOverState::init() {
         gameResultSprite.setTexture(data->assets.getTexture("Black Won"));
     else if (gameResult == 'S')
         gameResultSprite.setTexture(data->assets.getTexture("Stalemate"));
+    else
+        gameResultSprite.setTexture(data->assets.getTexture("Empty Square"));
 
     this->playAgainButton.setPosition((SCREEN_WIDTH/2)-(this->playAgainButton.getGlobalBounds().width*1.25),(SCREEN_HEIGHT/2)-(this->playAgainButton.getGlobalBounds().height/2));
     this->quitButton.setPosition((SCREEN_WIDTH / 2) + (this->quitButton.getGlobalBounds().width * .25), (SCREEN_HEIGHT / 2) - (this->quitButton.getGlobalBounds().height / 2));
-    this->title.setPosition((SCREEN_WIDTH/2)-(this->title.getGlobalBounds().width/2),this->title.getGlobalBounds().height*0.1);
-    this->gameResultSprite.setPosition((SCREEN_WIDTH/2)-(this->title.getGlobalBounds().width/2),this->title.getGlobalBounds().height*1.2);
+    this->gameResultSprite.setPosition((SCREEN_WIDTH/2)-(this->title.getGlobalBounds().width),this->title.getGlobalBounds().height*0.1);
 }
 
 void GameOverState::handleInput() {
@@ -47,9 +47,8 @@ void GameOverState::update() {
 void GameOverState::draw() {
     data->window.clear(sf::Color::Black);
     data->window.draw(background);
-    data->window.draw(playAgainButton);
     data->window.draw(gameResultSprite);
     data->window.draw(quitButton);
-    data->window.draw(title);
+    data->window.draw(playAgainButton);
     data->window.display();
 }
