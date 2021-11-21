@@ -4,14 +4,9 @@
 
 
 
-int Chess::evaluate(char teamColor) {
-    MaterialCountEvaluation evals = countMaterial();
-    int evaluation;
-
-    if (teamColor == 'W')
-        evaluation = evals.whiteEval-evals.blackEval;
-    else if (teamColor == 'B')
-        evaluation = evals.blackEval-evals.whiteEval;
+int Chess::evaluate() {
+    MaterialCountEvaluation materialEvals = countMaterial();
+    int evaluation = materialEvals.blackEval - materialEvals.whiteEval;
 
     return evaluation;
 }
@@ -79,14 +74,14 @@ Move Chess::getComputerMove(bool test) {
 
 int count = 0;
 Move Chess::getComputerMove() {
-    auto start = steady_clock::now();
+    auto start = std::chrono::steady_clock::now();
     std::vector<Move> allPossibleMoves = getAllPossibleMoves('B');
     Move bestMove;
     int bestMoveValue = INT_MIN;
 
     //Iterate through moves to find best
     for (int i=0; i<allPossibleMoves.size(); i++) {
-        processMove(allPossibleMoves[i]);
+        makeMove(allPossibleMoves[i]);
         int moveVal = minimax(2, false, INT_MIN, INT_MAX);
         undoMove();
         if (moveVal > bestMoveValue) {
@@ -94,8 +89,8 @@ Move Chess::getComputerMove() {
             bestMoveValue = moveVal;
         }
     }
-    auto end = steady_clock::now();
-    std::cout << "Num Moves Checked: " << count << " Elapsed Time: " << duration_cast<milliseconds>(end-start).count() << " milliseconds." << std::endl;
+    auto end = std::chrono::steady_clock::now();
+    std::cout << "Num Moves Checked: " << count << " Elapsed Time: " << std::chrono::duration_cast<std::chrono::milliseconds>(end-start).count() << " milliseconds." << std::endl;
     return bestMove;
 }
 
@@ -105,7 +100,7 @@ int Chess::minimax(int depth, bool isMax, int alpha, int beta) {
         teamColor = 'B';
 
     std::vector<Move> allPossibleMoves;
-    int score = evaluate(teamColor);
+    int score = evaluate();
     if (depth == 0) {
         return score;
     }
@@ -123,7 +118,7 @@ int Chess::minimax(int depth, bool isMax, int alpha, int beta) {
         allPossibleMoves = getAllPossibleMoves('B');
 
         for (int i=0; i<allPossibleMoves.size(); i++) {
-            processMove(allPossibleMoves[i]);
+            makeMove(allPossibleMoves[i]);
             best = std::max(best, minimax(depth-1, false, alpha, beta));
             undoMove();
             alpha = std::max(alpha, best);
@@ -139,7 +134,7 @@ int Chess::minimax(int depth, bool isMax, int alpha, int beta) {
         allPossibleMoves = getAllPossibleMoves('W');
 
         for (int i=0; i<allPossibleMoves.size(); i++) {
-            processMove(allPossibleMoves[i]);
+            makeMove(allPossibleMoves[i]);
             best = std::min(best, minimax(depth-1, true, alpha, beta));
             undoMove();
             beta = std::min(beta, best);

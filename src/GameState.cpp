@@ -30,7 +30,7 @@ void GameState::handleInput() {
                     break;
                 case sf::Event::MouseButtonReleased:
                     mouseReleasePos = sf::Mouse::getPosition(data->window);
-                    if (mouseClickPos.x != 0 && mouseClickPos.y != 0 && mouseReleasePos.x != 4 && mouseReleasePos.y != 2 && mouseClickPos != mouseReleasePos) {
+                    if (mouseClickPos != mouseReleasePos) {
                         int startRow, startCol, endRow, endCol;
                         startRow = int(mouseClickPos.y / 100);
                         startCol = int(mouseClickPos.x / 100);
@@ -45,6 +45,10 @@ void GameState::handleInput() {
                         }
                     }
                     chess.drawCleanBoard();
+                    break;
+                case sf::Event::KeyPressed:
+                    int numPositions = chess.moveGenererationTest(1);
+                    std::cout << "Num Possible Positions: " << numPositions << std::endl;
                     break;
             }
         }

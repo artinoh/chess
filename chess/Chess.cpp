@@ -538,6 +538,23 @@ bool Chess::isClickedOnWhitePiece(const Square &start) {
     return false;
 }
 
+int Chess::moveGenererationTest(int depth) {
+    if (depth == 0) {
+        return 1;
+    }
+    int numPositions = 0;
+    std::vector<Move> allMoves = getAllPossibleMoves('W');
+    std::vector<Move> allBlackMoves = getAllPossibleMoves('B');
+    allMoves.insert(allMoves.end(), allBlackMoves.begin(), allBlackMoves.end());
+    for (int i=0; i < allMoves.size(); i++) {
+        makeMove(allMoves[i]);
+        numPositions += moveGenererationTest(depth -1);
+        undoMove();
+    }
+    return numPositions;
+
+}
+
 
 
 

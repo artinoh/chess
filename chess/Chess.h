@@ -16,7 +16,7 @@
 #include <random>
 #include <ctime>
 #include <chrono>
-using namespace std::chrono;
+#include <thread>
 
 struct MaterialCountEvaluation {
     int whiteEval = 0;
@@ -52,13 +52,15 @@ private:
     int numMovesAvailable(char teamColor);
 
 
+
+
     //MiniMaxStuff
     const int pawnValue = 100;
     const int knightValue = 300;
     const int bishopValue = 300;
     const int rookValue = 500;
     const int queenValue = 900;
-    int evaluate(char teamColor);
+    int evaluate();
     MaterialCountEvaluation countMaterial();
     int minimax(int depth, bool isMax, int alpha, int beta);
     std::vector<Move> getAllPossibleMoves(char teamColor);
@@ -87,7 +89,7 @@ public:
     Move getComputerMove();
     Move getComputerMove(bool test);
 
-
+    int moveGenererationTest(int depth);
 };
 
 

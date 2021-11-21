@@ -41,6 +41,8 @@ ctime
 -
 chrono
 -
+thread
+-
 
 ../chess/King.h
 Piece.h
@@ -131,12 +133,6 @@ SFML/Graphics.hpp
 -
 Definitions.h
 ../headers/Definitions.h
-
-../headers/MainMenuState.h
-Game.h
-../headers/Game.h
-State.h
-../headers/State.h
 
 ../headers/State.h
 
@@ -818,111 +814,9 @@ SFML/Config.hpp
 
 C:/SFML/SFML-2.5.1/include/SFML/Window/WindowStyle.hpp
 
-C:/Users/Gamer/Desktop/C++ Projects/chess_v2/chess/Bishop.h
-Piece.h
-C:/Users/Gamer/Desktop/C++ Projects/chess_v2/chess/Piece.h
-
-C:/Users/Gamer/Desktop/C++ Projects/chess_v2/chess/Chess.cpp
-Chess.h
-C:/Users/Gamer/Desktop/C++ Projects/chess_v2/chess/Chess.h
-utility
--
-
-C:/Users/Gamer/Desktop/C++ Projects/chess_v2/chess/Chess.h
-array
--
-Piece.h
-C:/Users/Gamer/Desktop/C++ Projects/chess_v2/chess/Piece.h
-Pawn.h
-C:/Users/Gamer/Desktop/C++ Projects/chess_v2/chess/Pawn.h
-Knight.h
-C:/Users/Gamer/Desktop/C++ Projects/chess_v2/chess/Knight.h
-Bishop.h
-C:/Users/Gamer/Desktop/C++ Projects/chess_v2/chess/Bishop.h
-Rook.h
-C:/Users/Gamer/Desktop/C++ Projects/chess_v2/chess/Rook.h
-Queen.h
-C:/Users/Gamer/Desktop/C++ Projects/chess_v2/chess/Queen.h
-King.h
-C:/Users/Gamer/Desktop/C++ Projects/chess_v2/chess/King.h
-Definitions.h
-C:/Users/Gamer/Desktop/C++ Projects/chess_v2/chess/Definitions.h
-SFML/Graphics.hpp
--
-iostream
--
-Game.h
-C:/Users/Gamer/Desktop/C++ Projects/chess_v2/chess/Game.h
-random
--
-ctime
--
-chrono
--
-
-C:/Users/Gamer/Desktop/C++ Projects/chess_v2/chess/Computer.cpp
-random
--
-Chess.h
-C:/Users/Gamer/Desktop/C++ Projects/chess_v2/chess/Chess.h
-
-C:/Users/Gamer/Desktop/C++ Projects/chess_v2/chess/King.h
-Piece.h
-C:/Users/Gamer/Desktop/C++ Projects/chess_v2/chess/Piece.h
-
-C:/Users/Gamer/Desktop/C++ Projects/chess_v2/chess/Knight.h
-Piece.h
-C:/Users/Gamer/Desktop/C++ Projects/chess_v2/chess/Piece.h
-
-C:/Users/Gamer/Desktop/C++ Projects/chess_v2/chess/Pawn.h
-Piece.h
-C:/Users/Gamer/Desktop/C++ Projects/chess_v2/chess/Piece.h
-
-C:/Users/Gamer/Desktop/C++ Projects/chess_v2/chess/Piece.h
-SFML/Graphics.hpp
--
-vector
--
-map
--
-string
--
-AssetManager.h
-C:/Users/Gamer/Desktop/C++ Projects/chess_v2/chess/AssetManager.h
-Definitions.h
-C:/Users/Gamer/Desktop/C++ Projects/chess_v2/chess/Definitions.h
-iostream
--
-
-C:/Users/Gamer/Desktop/C++ Projects/chess_v2/chess/Queen.h
-Piece.h
-C:/Users/Gamer/Desktop/C++ Projects/chess_v2/chess/Piece.h
-
-C:/Users/Gamer/Desktop/C++ Projects/chess_v2/chess/Rook.h
-Piece.h
-C:/Users/Gamer/Desktop/C++ Projects/chess_v2/chess/Piece.h
-
-C:/Users/Gamer/Desktop/C++ Projects/chess_v2/src/GameOverState.cpp
-GameOverState.h
-C:/Users/Gamer/Desktop/C++ Projects/chess_v2/src/GameOverState.h
-utility
--
-GameState.h
-C:/Users/Gamer/Desktop/C++ Projects/chess_v2/src/GameState.h
-Definitions.h
-C:/Users/Gamer/Desktop/C++ Projects/chess_v2/src/Definitions.h
-
 C:/Users/Gamer/Desktop/C++ Projects/chess_v2/src/GameState.cpp
 GameState.h
 C:/Users/Gamer/Desktop/C++ Projects/chess_v2/src/GameState.h
 GameOverState.h
 C:/Users/Gamer/Desktop/C++ Projects/chess_v2/src/GameOverState.h
-
-C:/Users/Gamer/Desktop/C++ Projects/chess_v2/src/MainMenuState.cpp
-MainMenuState.h
-C:/Users/Gamer/Desktop/C++ Projects/chess_v2/src/MainMenuState.h
-GameState.h
-C:/Users/Gamer/Desktop/C++ Projects/chess_v2/src/GameState.h
-Definitions.h
-C:/Users/Gamer/Desktop/C++ Projects/chess_v2/src/Definitions.h
 
