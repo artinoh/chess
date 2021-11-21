@@ -6,7 +6,6 @@
 #include <array>
 #include "Game.h"
 #include "State.h"
-#include "HumanPlayer.h"
 #include "Chess.h"
 
 #include <iostream>

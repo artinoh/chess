@@ -165,19 +165,102 @@ CMakeFiles/chess_v2.dir/chess/Chess.cpp.obj: \
  ../chess/Bishop.h \
  ../chess/Chess.cpp \
  ../chess/Chess.h \
- ../chess/ComputerPlayer.h \
  ../chess/King.h \
  ../chess/Knight.h \
  ../chess/Pawn.h \
  ../chess/Piece.h \
  ../chess/Queen.h \
  ../chess/Rook.h
-CMakeFiles/chess_v2.dir/chess/ComputerPlayer.cpp.obj: \
- ../chess/ComputerPlayer.cpp \
- ../chess/ComputerPlayer.h
-CMakeFiles/chess_v2.dir/chess/HumanPlayer.cpp.obj: \
- ../chess/HumanPlayer.cpp \
- ../chess/HumanPlayer.h
+CMakeFiles/chess_v2.dir/chess/Computer.cpp.obj: \
+ ../headers/AssetManager.h \
+ ../headers/Definitions.h \
+ ../headers/Game.h \
+ ../headers/InputManager.h \
+ ../headers/State.h \
+ ../headers/StateMachine.h \
+ C:/SFML/SFML-2.5.1/include/SFML/Config.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/Graphics.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/Graphics/BlendMode.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/Graphics/CircleShape.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/Graphics/Color.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/Graphics/ConvexShape.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/Graphics/Drawable.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/Graphics/Export.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/Graphics/Font.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/Graphics/Glsl.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/Graphics/Glsl.inl \
+ C:/SFML/SFML-2.5.1/include/SFML/Graphics/Glyph.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/Graphics/Image.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/Graphics/PrimitiveType.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/Graphics/Rect.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/Graphics/Rect.inl \
+ C:/SFML/SFML-2.5.1/include/SFML/Graphics/RectangleShape.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/Graphics/RenderStates.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/Graphics/RenderTarget.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/Graphics/RenderTexture.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/Graphics/RenderWindow.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/Graphics/Shader.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/Graphics/Shape.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/Graphics/Sprite.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/Graphics/Text.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/Graphics/Texture.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/Graphics/Transform.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/Graphics/Transformable.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/Graphics/Vertex.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/Graphics/VertexArray.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/Graphics/VertexBuffer.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/Graphics/View.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/System.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/System/Clock.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/System/Err.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/System/Export.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/System/FileInputStream.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/System/InputStream.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/System/Lock.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/System/MemoryInputStream.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/System/Mutex.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/System/NonCopyable.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/System/Sleep.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/System/String.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/System/String.inl \
+ C:/SFML/SFML-2.5.1/include/SFML/System/Thread.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/System/Thread.inl \
+ C:/SFML/SFML-2.5.1/include/SFML/System/ThreadLocal.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/System/ThreadLocalPtr.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/System/ThreadLocalPtr.inl \
+ C:/SFML/SFML-2.5.1/include/SFML/System/Time.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/System/Utf.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/System/Utf.inl \
+ C:/SFML/SFML-2.5.1/include/SFML/System/Vector2.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/System/Vector2.inl \
+ C:/SFML/SFML-2.5.1/include/SFML/System/Vector3.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/System/Vector3.inl \
+ C:/SFML/SFML-2.5.1/include/SFML/Window.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/Window/Clipboard.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/Window/Context.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/Window/ContextSettings.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/Window/Cursor.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/Window/Event.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/Window/Export.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/Window/GlResource.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/Window/Joystick.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/Window/Keyboard.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/Window/Mouse.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/Window/Sensor.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/Window/Touch.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/Window/VideoMode.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/Window/Window.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/Window/WindowHandle.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/Window/WindowStyle.hpp \
+ ../chess/Bishop.h \
+ ../chess/Chess.h \
+ ../chess/Computer.cpp \
+ ../chess/King.h \
+ ../chess/Knight.h \
+ ../chess/Pawn.h \
+ ../chess/Piece.h \
+ ../chess/Queen.h \
+ ../chess/Rook.h
 CMakeFiles/chess_v2.dir/chess/King.cpp.obj: \
  ../headers/AssetManager.h \
  ../headers/Definitions.h \
@@ -497,9 +580,6 @@ CMakeFiles/chess_v2.dir/chess/Piece.cpp.obj: \
  C:/SFML/SFML-2.5.1/include/SFML/Window/WindowStyle.hpp \
  ../chess/Piece.cpp \
  ../chess/Piece.h
-CMakeFiles/chess_v2.dir/chess/Player.cpp.obj: \
- ../chess/Player.cpp \
- ../chess/Player.h
 CMakeFiles/chess_v2.dir/chess/Queen.cpp.obj: \
  ../headers/AssetManager.h \
  ../headers/Definitions.h \
@@ -820,11 +900,9 @@ CMakeFiles/chess_v2.dir/src/Game.cpp.obj: \
  C:/SFML/SFML-2.5.1/include/SFML/Window/WindowHandle.hpp \
  C:/SFML/SFML-2.5.1/include/SFML/Window/WindowStyle.hpp \
  ../src/Game.cpp
-CMakeFiles/chess_v2.dir/src/GameState.cpp.obj: \
+CMakeFiles/chess_v2.dir/src/GameOverState.cpp.obj: \
  ../chess/Bishop.h \
  ../chess/Chess.h \
- ../chess/ComputerPlayer.h \
- ../chess/HumanPlayer.h \
  ../chess/King.h \
  ../chess/Knight.h \
  ../chess/Pawn.h \
@@ -834,6 +912,99 @@ CMakeFiles/chess_v2.dir/src/GameState.cpp.obj: \
  ../headers/AssetManager.h \
  ../headers/Definitions.h \
  ../headers/Game.h \
+ ../headers/GameOverState.h \
+ ../headers/GameState.h \
+ ../headers/InputManager.h \
+ ../headers/State.h \
+ ../headers/StateMachine.h \
+ C:/SFML/SFML-2.5.1/include/SFML/Config.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/Graphics.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/Graphics/BlendMode.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/Graphics/CircleShape.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/Graphics/Color.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/Graphics/ConvexShape.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/Graphics/Drawable.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/Graphics/Export.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/Graphics/Font.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/Graphics/Glsl.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/Graphics/Glsl.inl \
+ C:/SFML/SFML-2.5.1/include/SFML/Graphics/Glyph.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/Graphics/Image.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/Graphics/PrimitiveType.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/Graphics/Rect.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/Graphics/Rect.inl \
+ C:/SFML/SFML-2.5.1/include/SFML/Graphics/RectangleShape.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/Graphics/RenderStates.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/Graphics/RenderTarget.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/Graphics/RenderTexture.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/Graphics/RenderWindow.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/Graphics/Shader.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/Graphics/Shape.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/Graphics/Sprite.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/Graphics/Text.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/Graphics/Texture.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/Graphics/Transform.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/Graphics/Transformable.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/Graphics/Vertex.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/Graphics/VertexArray.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/Graphics/VertexBuffer.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/Graphics/View.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/System.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/System/Clock.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/System/Err.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/System/Export.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/System/FileInputStream.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/System/InputStream.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/System/Lock.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/System/MemoryInputStream.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/System/Mutex.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/System/NonCopyable.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/System/Sleep.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/System/String.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/System/String.inl \
+ C:/SFML/SFML-2.5.1/include/SFML/System/Thread.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/System/Thread.inl \
+ C:/SFML/SFML-2.5.1/include/SFML/System/ThreadLocal.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/System/ThreadLocalPtr.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/System/ThreadLocalPtr.inl \
+ C:/SFML/SFML-2.5.1/include/SFML/System/Time.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/System/Utf.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/System/Utf.inl \
+ C:/SFML/SFML-2.5.1/include/SFML/System/Vector2.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/System/Vector2.inl \
+ C:/SFML/SFML-2.5.1/include/SFML/System/Vector3.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/System/Vector3.inl \
+ C:/SFML/SFML-2.5.1/include/SFML/Window.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/Window/Clipboard.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/Window/Context.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/Window/ContextSettings.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/Window/Cursor.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/Window/Event.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/Window/Export.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/Window/GlResource.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/Window/Joystick.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/Window/Keyboard.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/Window/Mouse.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/Window/Sensor.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/Window/Touch.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/Window/VideoMode.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/Window/Window.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/Window/WindowHandle.hpp \
+ C:/SFML/SFML-2.5.1/include/SFML/Window/WindowStyle.hpp \
+ ../src/GameOverState.cpp
+CMakeFiles/chess_v2.dir/src/GameState.cpp.obj: \
+ ../chess/Bishop.h \
+ ../chess/Chess.h \
+ ../chess/King.h \
+ ../chess/Knight.h \
+ ../chess/Pawn.h \
+ ../chess/Piece.h \
+ ../chess/Queen.h \
+ ../chess/Rook.h \
+ ../headers/AssetManager.h \
+ ../headers/Definitions.h \
+ ../headers/Game.h \
+ ../headers/GameOverState.h \
  ../headers/GameState.h \
  ../headers/InputManager.h \
  ../headers/State.h \
@@ -994,8 +1165,6 @@ CMakeFiles/chess_v2.dir/src/InputManager.cpp.obj: \
 CMakeFiles/chess_v2.dir/src/MainMenuState.cpp.obj: \
  ../chess/Bishop.h \
  ../chess/Chess.h \
- ../chess/ComputerPlayer.h \
- ../chess/HumanPlayer.h \
  ../chess/King.h \
  ../chess/Knight.h \
  ../chess/Pawn.h \

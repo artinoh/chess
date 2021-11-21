@@ -102,16 +102,7 @@
 		<Unit filename="C:/Users/Gamer/Desktop/C++ Projects/chess_v2/chess/Chess.h">
 			<Option target="chess_v2"/>
 		</Unit>
-		<Unit filename="C:/Users/Gamer/Desktop/C++ Projects/chess_v2/chess/ComputerPlayer.cpp">
-			<Option target="chess_v2"/>
-		</Unit>
-		<Unit filename="C:/Users/Gamer/Desktop/C++ Projects/chess_v2/chess/ComputerPlayer.h">
-			<Option target="chess_v2"/>
-		</Unit>
-		<Unit filename="C:/Users/Gamer/Desktop/C++ Projects/chess_v2/chess/HumanPlayer.cpp">
-			<Option target="chess_v2"/>
-		</Unit>
-		<Unit filename="C:/Users/Gamer/Desktop/C++ Projects/chess_v2/chess/HumanPlayer.h">
+		<Unit filename="C:/Users/Gamer/Desktop/C++ Projects/chess_v2/chess/Computer.cpp">
 			<Option target="chess_v2"/>
 		</Unit>
 		<Unit filename="C:/Users/Gamer/Desktop/C++ Projects/chess_v2/chess/King.cpp">
@@ -138,12 +129,6 @@
 		<Unit filename="C:/Users/Gamer/Desktop/C++ Projects/chess_v2/chess/Piece.h">
 			<Option target="chess_v2"/>
 		</Unit>
-		<Unit filename="C:/Users/Gamer/Desktop/C++ Projects/chess_v2/chess/Player.cpp">
-			<Option target="chess_v2"/>
-		</Unit>
-		<Unit filename="C:/Users/Gamer/Desktop/C++ Projects/chess_v2/chess/Player.h">
-			<Option target="chess_v2"/>
-		</Unit>
 		<Unit filename="C:/Users/Gamer/Desktop/C++ Projects/chess_v2/chess/Queen.cpp">
 			<Option target="chess_v2"/>
 		</Unit>
@@ -165,6 +150,9 @@
 		<Unit filename="C:/Users/Gamer/Desktop/C++ Projects/chess_v2/headers/Game.h">
 			<Option target="chess_v2"/>
 		</Unit>
+		<Unit filename="C:/Users/Gamer/Desktop/C++ Projects/chess_v2/headers/GameOverState.h">
+			<Option target="chess_v2"/>
+		</Unit>
 		<Unit filename="C:/Users/Gamer/Desktop/C++ Projects/chess_v2/headers/GameState.h">
 			<Option target="chess_v2"/>
 		</Unit>
@@ -184,6 +172,9 @@
 			<Option target="chess_v2"/>
 		</Unit>
 		<Unit filename="C:/Users/Gamer/Desktop/C++ Projects/chess_v2/src/Game.cpp">
+			<Option target="chess_v2"/>
+		</Unit>
+		<Unit filename="C:/Users/Gamer/Desktop/C++ Projects/chess_v2/src/GameOverState.cpp">
 			<Option target="chess_v2"/>
 		</Unit>
 		<Unit filename="C:/Users/Gamer/Desktop/C++ Projects/chess_v2/src/GameState.cpp">

@@ -11,7 +11,7 @@ private:
     sf::Sprite background;
     sf::Sprite playButton;
     sf::Sprite title;
-    sf::Sprite exitButton;
+    sf::Sprite quitButton;
 
 public:
     MainMenuState() = default;

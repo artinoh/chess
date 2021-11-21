@@ -25,6 +25,7 @@ private:
     void init();
     void run();
     void loadMainMenuAssets();
+    void loadGameOverAssets();
     void loadPieceAssets();
     void loadOtherAssets();
 

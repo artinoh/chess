@@ -176,53 +176,29 @@ chess/Chess.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\chess_v2.dir\build.make CMakeFiles/chess_v2.dir/chess/Chess.cpp.s
 .PHONY : chess/Chess.cpp.s
 
-chess/ComputerPlayer.obj: chess/ComputerPlayer.cpp.obj
-.PHONY : chess/ComputerPlayer.obj
+chess/Computer.obj: chess/Computer.cpp.obj
+.PHONY : chess/Computer.obj
 
 # target to build an object file
-chess/ComputerPlayer.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\chess_v2.dir\build.make CMakeFiles/chess_v2.dir/chess/ComputerPlayer.cpp.obj
-.PHONY : chess/ComputerPlayer.cpp.obj
+chess/Computer.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\chess_v2.dir\build.make CMakeFiles/chess_v2.dir/chess/Computer.cpp.obj
+.PHONY : chess/Computer.cpp.obj
 
-chess/ComputerPlayer.i: chess/ComputerPlayer.cpp.i
-.PHONY : chess/ComputerPlayer.i
-
-# target to preprocess a source file
-chess/ComputerPlayer.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\chess_v2.dir\build.make CMakeFiles/chess_v2.dir/chess/ComputerPlayer.cpp.i
-.PHONY : chess/ComputerPlayer.cpp.i
-
-chess/ComputerPlayer.s: chess/ComputerPlayer.cpp.s
-.PHONY : chess/ComputerPlayer.s
-
-# target to generate assembly for a file
-chess/ComputerPlayer.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\chess_v2.dir\build.make CMakeFiles/chess_v2.dir/chess/ComputerPlayer.cpp.s
-.PHONY : chess/ComputerPlayer.cpp.s
-
-chess/HumanPlayer.obj: chess/HumanPlayer.cpp.obj
-.PHONY : chess/HumanPlayer.obj
-
-# target to build an object file
-chess/HumanPlayer.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\chess_v2.dir\build.make CMakeFiles/chess_v2.dir/chess/HumanPlayer.cpp.obj
-.PHONY : chess/HumanPlayer.cpp.obj
-
-chess/HumanPlayer.i: chess/HumanPlayer.cpp.i
-.PHONY : chess/HumanPlayer.i
+chess/Computer.i: chess/Computer.cpp.i
+.PHONY : chess/Computer.i
 
 # target to preprocess a source file
-chess/HumanPlayer.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\chess_v2.dir\build.make CMakeFiles/chess_v2.dir/chess/HumanPlayer.cpp.i
-.PHONY : chess/HumanPlayer.cpp.i
+chess/Computer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\chess_v2.dir\build.make CMakeFiles/chess_v2.dir/chess/Computer.cpp.i
+.PHONY : chess/Computer.cpp.i
 
-chess/HumanPlayer.s: chess/HumanPlayer.cpp.s
-.PHONY : chess/HumanPlayer.s
+chess/Computer.s: chess/Computer.cpp.s
+.PHONY : chess/Computer.s
 
 # target to generate assembly for a file
-chess/HumanPlayer.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\chess_v2.dir\build.make CMakeFiles/chess_v2.dir/chess/HumanPlayer.cpp.s
-.PHONY : chess/HumanPlayer.cpp.s
+chess/Computer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\chess_v2.dir\build.make CMakeFiles/chess_v2.dir/chess/Computer.cpp.s
+.PHONY : chess/Computer.cpp.s
 
 chess/King.obj: chess/King.cpp.obj
 .PHONY : chess/King.obj
@@ -320,30 +296,6 @@ chess/Piece.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\chess_v2.dir\build.make CMakeFiles/chess_v2.dir/chess/Piece.cpp.s
 .PHONY : chess/Piece.cpp.s
 
-chess/Player.obj: chess/Player.cpp.obj
-.PHONY : chess/Player.obj
-
-# target to build an object file
-chess/Player.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\chess_v2.dir\build.make CMakeFiles/chess_v2.dir/chess/Player.cpp.obj
-.PHONY : chess/Player.cpp.obj
-
-chess/Player.i: chess/Player.cpp.i
-.PHONY : chess/Player.i
-
-# target to preprocess a source file
-chess/Player.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\chess_v2.dir\build.make CMakeFiles/chess_v2.dir/chess/Player.cpp.i
-.PHONY : chess/Player.cpp.i
-
-chess/Player.s: chess/Player.cpp.s
-.PHONY : chess/Player.s
-
-# target to generate assembly for a file
-chess/Player.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\chess_v2.dir\build.make CMakeFiles/chess_v2.dir/chess/Player.cpp.s
-.PHONY : chess/Player.cpp.s
-
 chess/Queen.obj: chess/Queen.cpp.obj
 .PHONY : chess/Queen.obj
 
@@ -439,6 +391,30 @@ src/Game.s: src/Game.cpp.s
 src/Game.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\chess_v2.dir\build.make CMakeFiles/chess_v2.dir/src/Game.cpp.s
 .PHONY : src/Game.cpp.s
+
+src/GameOverState.obj: src/GameOverState.cpp.obj
+.PHONY : src/GameOverState.obj
+
+# target to build an object file
+src/GameOverState.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\chess_v2.dir\build.make CMakeFiles/chess_v2.dir/src/GameOverState.cpp.obj
+.PHONY : src/GameOverState.cpp.obj
+
+src/GameOverState.i: src/GameOverState.cpp.i
+.PHONY : src/GameOverState.i
+
+# target to preprocess a source file
+src/GameOverState.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\chess_v2.dir\build.make CMakeFiles/chess_v2.dir/src/GameOverState.cpp.i
+.PHONY : src/GameOverState.cpp.i
+
+src/GameOverState.s: src/GameOverState.cpp.s
+.PHONY : src/GameOverState.s
+
+# target to generate assembly for a file
+src/GameOverState.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\chess_v2.dir\build.make CMakeFiles/chess_v2.dir/src/GameOverState.cpp.s
+.PHONY : src/GameOverState.cpp.s
 
 src/GameState.obj: src/GameState.cpp.obj
 .PHONY : src/GameState.obj
@@ -575,12 +551,9 @@ help:
 	@echo ... chess/Chess.obj
 	@echo ... chess/Chess.i
 	@echo ... chess/Chess.s
-	@echo ... chess/ComputerPlayer.obj
-	@echo ... chess/ComputerPlayer.i
-	@echo ... chess/ComputerPlayer.s
-	@echo ... chess/HumanPlayer.obj
-	@echo ... chess/HumanPlayer.i
-	@echo ... chess/HumanPlayer.s
+	@echo ... chess/Computer.obj
+	@echo ... chess/Computer.i
+	@echo ... chess/Computer.s
 	@echo ... chess/King.obj
 	@echo ... chess/King.i
 	@echo ... chess/King.s
@@ -593,9 +566,6 @@ help:
 	@echo ... chess/Piece.obj
 	@echo ... chess/Piece.i
 	@echo ... chess/Piece.s
-	@echo ... chess/Player.obj
-	@echo ... chess/Player.i
-	@echo ... chess/Player.s
 	@echo ... chess/Queen.obj
 	@echo ... chess/Queen.i
 	@echo ... chess/Queen.s
@@ -608,6 +578,9 @@ help:
 	@echo ... src/Game.obj
 	@echo ... src/Game.i
 	@echo ... src/Game.s
+	@echo ... src/GameOverState.obj
+	@echo ... src/GameOverState.i
+	@echo ... src/GameOverState.s
 	@echo ... src/GameState.obj
 	@echo ... src/GameState.i
 	@echo ... src/GameState.s

@@ -30,7 +30,14 @@ void Game::loadMainMenuAssets() {
     this->data->assets.loadTexture("Title", MAIN_MENU_TITLE_PATH);
     this->data->assets.loadTexture("Background", MAIN_BACKGROUND);
     this->data->assets.loadTexture("Play Button", MAIN_MENU_PLAY_BUTTON);
-    this->data->assets.loadTexture("Exit Button", EXIT_BUTTON_FILE_PATH);
+    this->data->assets.loadTexture("Quit Button", QUIT_BUTTON_FILE_PATH);
+}
+
+void Game::loadGameOverAssets() {
+    this->data->assets.loadTexture("Play Again Button", PLAY_AGAIN_BUTTON);
+    this->data->assets.loadTexture("White Won", WHITE_WON_FILEPATH);
+    this->data->assets.loadTexture("Black Won", BLACK_WON_FILEPATH);
+    this->data->assets.loadTexture("Stalemate", STALEMATE_FILEPATH);
 }
 
 void Game::loadPieceAssets() {

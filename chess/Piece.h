@@ -30,6 +30,7 @@ struct Move {
     bool operator ==(const Move& b) const {
         return (start == b.start && target == b.target);
     }
+    Move& operator=(const Move& b) = default;
 };
 
 enum PieceType {

@@ -9,11 +9,12 @@
 #include "Rook.h"
 #include "Queen.h"
 #include "King.h"
-#include "ComputerPlayer.h"
 #include "Definitions.h"
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include "Game.h"
+#include <random>
+#include <ctime>
 
 class Chess : public sf::Drawable {
 
@@ -22,33 +23,62 @@ private:
     sf::Sprite spriteBoard[8][8];
     sf::RectangleShape squaresBoard[8][8];
     std::vector<sf::RectangleShape> potentialSquares;
-    sf::Sprite temp;
     gameDataRef data;
     Piece emptyPiece;
     std::deque<std::array<std::array<Piece*, 8>, 8>> previousPositions;
     std::deque<Move> moves;
 
 
-    std::vector<Square> getPotentialMoves(const Square& start);
+    std::vector<Square> getPotentialMovesFromSquare(const Square& start);
     void initPieces();
     void initBoardSquares();
     void prepareBoardToDraw();
     void castle(const Square& target, char color);
+    void enPassant(const Square& target, char color);
     std::vector<std::vector<Square>> getAllAttacking(char teamColor);
-    Square findBlackKing() const;
-    Square findWhiteKing() const;
+    Square findKing(char teamColor) const;
+
+    std::vector<Square> getLegalMovesFromSquare(const Square& start);
+    std::vector<Piece*> newQueens;
+    void processMove(Move& move);
+    bool isKingAttacked(char teamColor);
+    int numMovesAvailable(char teamColor);
+
+
+    //MiniMaxStuff
+    const int pawnValue = 100;
+    const int knightValue = 300;
+    const int bishopValue = 300;
+    const int rookValue = 500;
+    const int queenValue = 900;
+    int evaluate(char teamColor);
+    int countMaterial(char teamColor);
+    int minimax(int depth, bool isMax, int alpha, int beta);
 
 
 public:
     Chess() = default;
     ~Chess();
     explicit Chess(gameDataRef inData);
-    bool processPlayerMove(Move& move);
+    bool checkLegalMove(Move& move);
 
+
+    bool isLegalMove(Move& move);
+    void makeMove(Move& move);
     virtual void draw(sf::RenderTarget& window, sf::RenderStates states) const;
-    void drawPotentialMoves(const Square& start);
-    void drawCleanBoard();
+    void drawLegalMoves(const Square& start);
     void undoMove();
+    void drawCleanBoard();
+
+    bool isClickedOnWhitePiece(const Square& start);
+
+    bool blackIsCheckmated();
+    bool whiteIsCheckmated();
+    bool stalemate();
+
+    Move getComputerMove();
+    Move getComputerMove(bool test);
+
 
 };
 
