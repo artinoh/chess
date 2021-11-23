@@ -16,7 +16,6 @@
 #include <random>
 #include <ctime>
 #include <chrono>
-#include <thread>
 
 struct MaterialCountEvaluation {
     int whiteEval = 0;
@@ -52,8 +51,6 @@ private:
     int numMovesAvailable(char teamColor);
 
 
-
-
     //MiniMaxStuff
     const int pawnValue = 100;
     const int knightValue = 300;
@@ -79,6 +76,7 @@ public:
     void drawLegalMoves(const Square& start);
     void undoMove();
     void drawCleanBoard();
+    bool areTwoPiecesAtackingEachother(const Square& firstPiece, const Square& secondPiece);
 
     bool isClickedOnWhitePiece(const Square& start);
 

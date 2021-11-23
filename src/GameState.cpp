@@ -3,9 +3,7 @@
 
 GameState::GameState(gameDataRef inData) : data(std::move(inData)), chess(inData) {}
 
-void GameState::init() {
-
-}
+void GameState::init() {}
 
 void GameState::handleInput() {
     if (chess.whiteIsCheckmated()) {
@@ -54,15 +52,13 @@ void GameState::handleInput() {
         }
     }
     else {
-        Move computerMove = chess.getComputerMove();
+        Move computerMove = chess.getComputerMove(true);
         chess.makeMove(computerMove);
         isPlayerTurn = !isPlayerTurn;
     }
 }
 
-void GameState::update() {
-
-}
+void GameState::update() {}
 
 void GameState::draw() {
     data->window.clear(sf::Color::Black);

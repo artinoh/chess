@@ -49,6 +49,8 @@ class Piece {
 protected:
     char color;
     bool hasMoved = false;
+    int row;
+    int col;
 
 public:
     Piece();
@@ -58,6 +60,11 @@ public:
     bool getHasMoved() const;
     virtual std::vector<Square> getTargetSquares(const Square& start, const std::array<std::array<Piece*, 8>, 8>& board, char startColor, char oppositeColor, const Move& lastMove);
     virtual int getPieceType() const;
+    void setRow(int inRow);
+    void setCol(int inCol);
+    int getRow() const;
+    int getCol() const;
+    Square getSquare() const;
 
 
 };

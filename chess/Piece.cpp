@@ -27,6 +27,26 @@ int Piece::getPieceType() const {
     return EMPTY;
 }
 
+void Piece::setRow(int inRow) {
+    this->row = inRow;
+}
+
+void Piece::setCol(int inCol) {
+    this->col = inCol;
+}
+
+int Piece::getRow() const {
+    return row;
+}
+
+int Piece::getCol() const {
+    return col;
+}
+
+Square Piece::getSquare() const {
+    return {row, col};
+}
+
 
 
 

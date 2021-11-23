@@ -80,14 +80,14 @@ void Chess::initPieces() {
         whitePawns[i] = new Pawn('W');
         pieceBoard[6][i] = whitePawns[i];
     }
-    Rook* whiteLeftRook = new Rook('W');
-    Rook* whiteRightRook = new Rook('W');
-    Knight* whiteleftKnight = new Knight('W');
-    Knight* whiteRightKnight = new Knight('W');
-    Bishop* whiteLeftBishop = new Bishop('W');
-    Bishop* whiteRightBishop = new Bishop('W');
-    Queen* whiteQueen = new Queen('W');
-    King* whiteKing = new King('W');
+    Rook* whiteLeftRook = new Rook('W', 7, 0);
+    Knight* whiteleftKnight = new Knight('W', 7, 1);
+    Bishop* whiteLeftBishop = new Bishop('W', 7, 2);
+    Queen* whiteQueen = new Queen('W', 7, 3);
+    King* whiteKing = new King('W', 7, 4);
+    Bishop* whiteRightBishop = new Bishop('W', 7, 5);
+    Knight* whiteRightKnight = new Knight('W', 7, 6);
+    Rook* whiteRightRook = new Rook('W', 7, 7);
 
     pieceBoard[7][0] = whiteLeftRook;
     pieceBoard[7][1] = whiteleftKnight;
@@ -104,14 +104,14 @@ void Chess::initPieces() {
         pieceBoard[1][i] = blackPawns[i];
     }
 
-    Rook* blackLeftRook = new Rook('B');
-    Rook* blackRightRook = new Rook('B');
-    Knight* blackleftKnight = new Knight('B');
-    Knight* blackRightKnight = new Knight('B');
-    Bishop* blackLeftBishop = new Bishop('B');
-    Bishop* blackRightBishop = new Bishop('B');
-    Queen* blackQueen = new Queen('B');
-    King* blackKing = new King('B');
+    Rook* blackLeftRook = new Rook('B', 0, 0);
+    Knight* blackleftKnight = new Knight('B',0, 1);
+    Bishop* blackLeftBishop = new Bishop('B',0, 2);
+    Queen* blackQueen = new Queen('B',0, 3);
+    King* blackKing = new King('B',0, 4);
+    Bishop* blackRightBishop = new Bishop('B',0, 5);
+    Knight* blackRightKnight = new Knight('B',0, 6);
+    Rook* blackRightRook = new Rook('B',0, 7);
 
     pieceBoard[0][0] = blackLeftRook;
     pieceBoard[0][1] = blackleftKnight;
@@ -232,7 +232,9 @@ bool Chess::checkLegalMove(Move &move) {
     return isKingSafe;
 }
 
+
 bool Chess::isKingAttacked(char teamColor) {
+    //Make this a member variable
     Square currentKingSquare = findKing(teamColor);
     char oppositeColor;
     if (teamColor == 'W') {
@@ -244,6 +246,10 @@ bool Chess::isKingAttacked(char teamColor) {
     else {
         oppositeColor = teamColor;
     }
+
+    //get column / row of king
+    //get diagonal of king
+    //only check htose
 
     std::vector<std::vector<Square>> oppositeColorAttacking = getAllAttacking(oppositeColor);
     bool isKingAttacked = false;
@@ -273,6 +279,8 @@ void Chess::processMove(Move &move) {
             thisPawn->setHasDoubledMoved(true);
         }
     }
+
+
     //Handle En Passant
     if (move.target.enPassant) {
         enPassant(move.target, currentPieceColor);
@@ -513,8 +521,8 @@ bool Chess::blackIsCheckmated() {
 }
 
 bool Chess::whiteIsCheckmated() {
-    int numBlackMovesAvailable = numMovesAvailable('W');
-    if (numBlackMovesAvailable == 0 && isKingAttacked('W')) {
+    int numWhiteMovesAvailable = numMovesAvailable('W');
+    if (numWhiteMovesAvailable == 0 && isKingAttacked('W')) {
         return true;
     }
     return false;
@@ -553,6 +561,18 @@ int Chess::moveGenererationTest(int depth) {
     }
     return numPositions;
 
+}
+
+bool Chess::areTwoPiecesAtackingEachother(const Square &firstPiece, const Square &secondPiece) {
+    std::vector<Square> firstPieceAttacking = getLegalMovesFromSquare(firstPiece);
+
+
+    for (int i=0; i<firstPieceAttacking.size(); i++) {
+        if (firstPieceAttacking[i] == secondPiece)
+            return true;
+    }
+
+    return false;
 }
 
 

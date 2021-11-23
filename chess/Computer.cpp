@@ -6,7 +6,7 @@
 
 int Chess::evaluate() {
     MaterialCountEvaluation materialEvals = countMaterial();
-    int evaluation = materialEvals.blackEval - materialEvals.whiteEval;
+    int evaluation = materialEvals.blackEval - materialEvals  .whiteEval;
 
     return evaluation;
 }
@@ -72,7 +72,6 @@ Move Chess::getComputerMove(bool test) {
     return allPossibleMoves[randomMove];
 }
 
-int count = 0;
 Move Chess::getComputerMove() {
     auto start = std::chrono::steady_clock::now();
     std::vector<Move> allPossibleMoves = getAllPossibleMoves('B');
@@ -90,7 +89,7 @@ Move Chess::getComputerMove() {
         }
     }
     auto end = std::chrono::steady_clock::now();
-    std::cout << "Num Moves Checked: " << count << " Elapsed Time: " << std::chrono::duration_cast<std::chrono::milliseconds>(end-start).count() << " milliseconds." << std::endl;
+    std::cout << "Elapsed Time: " << std::chrono::duration_cast<std::chrono::milliseconds>(end-start).count() << " milliseconds." << std::endl;
     return bestMove;
 }
 
@@ -126,7 +125,6 @@ int Chess::minimax(int depth, bool isMax, int alpha, int beta) {
                 break;
             }
         }
-        count++;
         return best;
     }
     else {
@@ -142,7 +140,6 @@ int Chess::minimax(int depth, bool isMax, int alpha, int beta) {
                 break;
             }
         }
-        count++;
         return best;
     }
 }

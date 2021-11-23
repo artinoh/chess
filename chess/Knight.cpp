@@ -71,3 +71,9 @@ bool Knight::squareIsInBounds(const Square &square) {
     }
     return true;
 }
+
+Knight::Knight(char color, int inRow, int inCol) {
+    this->color = color;
+    this->row = inRow;
+    this->col = inCol;
+}
