@@ -6,6 +6,78 @@
 
 #IncludeRegexTransform: 
 
+../chess/Bishop.h
+Piece.h
+../chess/Piece.h
+
+../chess/Chess.h
+array
+-
+Piece.h
+../chess/Piece.h
+Pawn.h
+../chess/Pawn.h
+Knight.h
+../chess/Knight.h
+Bishop.h
+../chess/Bishop.h
+Rook.h
+../chess/Rook.h
+Queen.h
+../chess/Queen.h
+King.h
+../chess/King.h
+Definitions.h
+../chess/Definitions.h
+SFML/Graphics.hpp
+-
+iostream
+-
+Game.h
+../chess/Game.h
+random
+-
+ctime
+-
+chrono
+-
+
+../chess/King.h
+Piece.h
+../chess/Piece.h
+
+../chess/Knight.h
+Piece.h
+../chess/Piece.h
+
+../chess/Pawn.h
+Piece.h
+../chess/Piece.h
+
+../chess/Piece.h
+SFML/Graphics.hpp
+-
+vector
+-
+map
+-
+string
+-
+AssetManager.h
+../chess/AssetManager.h
+Definitions.h
+../chess/Definitions.h
+iostream
+-
+
+../chess/Queen.h
+Piece.h
+../chess/Piece.h
+
+../chess/Rook.h
+Piece.h
+../chess/Piece.h
+
 ../headers/AssetManager.h
 map
 -
@@ -13,6 +85,68 @@ SFML/Graphics.hpp
 -
 
 ../headers/Definitions.h
+
+../headers/Game.h
+memory
+-
+string
+-
+SFML/Graphics.hpp
+-
+StateMachine.h
+../headers/StateMachine.h
+AssetManager.h
+../headers/AssetManager.h
+InputManager.h
+../headers/InputManager.h
+Definitions.h
+../headers/Definitions.h
+
+../headers/GameOverState.h
+State.h
+../headers/State.h
+Game.h
+../headers/Game.h
+Definitions.h
+../headers/Definitions.h
+
+../headers/GameState.h
+SFML/Graphics.hpp
+-
+vector
+-
+array
+-
+Game.h
+../headers/Game.h
+State.h
+../headers/State.h
+Chess.h
+../headers/Chess.h
+iostream
+-
+
+../headers/InputManager.h
+SFML/Graphics.hpp
+-
+Definitions.h
+../headers/Definitions.h
+
+../headers/MainMenuState.h
+Game.h
+../headers/Game.h
+State.h
+../headers/State.h
+
+../headers/State.h
+
+../headers/StateMachine.h
+memory
+-
+deque
+-
+State.h
+../headers/State.h
 
 C:/SFML/SFML-2.5.1/include/SFML/Config.hpp
 TargetConditionals.h
@@ -684,9 +818,65 @@ SFML/Config.hpp
 
 C:/SFML/SFML-2.5.1/include/SFML/Window/WindowStyle.hpp
 
-C:/Users/Gamer/Desktop/C++ Projects/chess_v2/chess/Pawn.cpp
+C:/Users/Gamer/Desktop/C++ Projects/chess_v2/chess/Bishop.h
+Piece.h
+C:/Users/Gamer/Desktop/C++ Projects/chess_v2/chess/Piece.h
+
+C:/Users/Gamer/Desktop/C++ Projects/chess_v2/chess/Chess.cpp
+Chess.h
+C:/Users/Gamer/Desktop/C++ Projects/chess_v2/chess/Chess.h
+utility
+-
+
+C:/Users/Gamer/Desktop/C++ Projects/chess_v2/chess/Chess.h
+array
+-
+Piece.h
+C:/Users/Gamer/Desktop/C++ Projects/chess_v2/chess/Piece.h
 Pawn.h
 C:/Users/Gamer/Desktop/C++ Projects/chess_v2/chess/Pawn.h
+Knight.h
+C:/Users/Gamer/Desktop/C++ Projects/chess_v2/chess/Knight.h
+Bishop.h
+C:/Users/Gamer/Desktop/C++ Projects/chess_v2/chess/Bishop.h
+Rook.h
+C:/Users/Gamer/Desktop/C++ Projects/chess_v2/chess/Rook.h
+Queen.h
+C:/Users/Gamer/Desktop/C++ Projects/chess_v2/chess/Queen.h
+King.h
+C:/Users/Gamer/Desktop/C++ Projects/chess_v2/chess/King.h
+Definitions.h
+C:/Users/Gamer/Desktop/C++ Projects/chess_v2/chess/Definitions.h
+SFML/Graphics.hpp
+-
+iostream
+-
+Game.h
+C:/Users/Gamer/Desktop/C++ Projects/chess_v2/chess/Game.h
+random
+-
+ctime
+-
+chrono
+-
+
+C:/Users/Gamer/Desktop/C++ Projects/chess_v2/chess/Computer.cpp
+random
+-
+Chess.h
+C:/Users/Gamer/Desktop/C++ Projects/chess_v2/chess/Chess.h
+
+C:/Users/Gamer/Desktop/C++ Projects/chess_v2/chess/King.cpp
+King.h
+C:/Users/Gamer/Desktop/C++ Projects/chess_v2/chess/King.h
+
+C:/Users/Gamer/Desktop/C++ Projects/chess_v2/chess/King.h
+Piece.h
+C:/Users/Gamer/Desktop/C++ Projects/chess_v2/chess/Piece.h
+
+C:/Users/Gamer/Desktop/C++ Projects/chess_v2/chess/Knight.h
+Piece.h
+C:/Users/Gamer/Desktop/C++ Projects/chess_v2/chess/Piece.h
 
 C:/Users/Gamer/Desktop/C++ Projects/chess_v2/chess/Pawn.h
 Piece.h
@@ -707,4 +897,44 @@ Definitions.h
 C:/Users/Gamer/Desktop/C++ Projects/chess_v2/chess/Definitions.h
 iostream
 -
+
+C:/Users/Gamer/Desktop/C++ Projects/chess_v2/chess/Queen.cpp
+Queen.h
+C:/Users/Gamer/Desktop/C++ Projects/chess_v2/chess/Queen.h
+
+C:/Users/Gamer/Desktop/C++ Projects/chess_v2/chess/Queen.h
+Piece.h
+C:/Users/Gamer/Desktop/C++ Projects/chess_v2/chess/Piece.h
+
+C:/Users/Gamer/Desktop/C++ Projects/chess_v2/chess/Rook.cpp
+Rook.h
+C:/Users/Gamer/Desktop/C++ Projects/chess_v2/chess/Rook.h
+
+C:/Users/Gamer/Desktop/C++ Projects/chess_v2/chess/Rook.h
+Piece.h
+C:/Users/Gamer/Desktop/C++ Projects/chess_v2/chess/Piece.h
+
+C:/Users/Gamer/Desktop/C++ Projects/chess_v2/src/GameOverState.cpp
+GameOverState.h
+C:/Users/Gamer/Desktop/C++ Projects/chess_v2/src/GameOverState.h
+utility
+-
+GameState.h
+C:/Users/Gamer/Desktop/C++ Projects/chess_v2/src/GameState.h
+Definitions.h
+C:/Users/Gamer/Desktop/C++ Projects/chess_v2/src/Definitions.h
+
+C:/Users/Gamer/Desktop/C++ Projects/chess_v2/src/GameState.cpp
+GameState.h
+C:/Users/Gamer/Desktop/C++ Projects/chess_v2/src/GameState.h
+GameOverState.h
+C:/Users/Gamer/Desktop/C++ Projects/chess_v2/src/GameOverState.h
+
+C:/Users/Gamer/Desktop/C++ Projects/chess_v2/src/MainMenuState.cpp
+MainMenuState.h
+C:/Users/Gamer/Desktop/C++ Projects/chess_v2/src/MainMenuState.h
+GameState.h
+C:/Users/Gamer/Desktop/C++ Projects/chess_v2/src/GameState.h
+Definitions.h
+C:/Users/Gamer/Desktop/C++ Projects/chess_v2/src/Definitions.h
 

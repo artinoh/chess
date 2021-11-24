@@ -27,6 +27,12 @@ int Piece::getPieceType() const {
     return EMPTY;
 }
 
+bool Piece::squareIsInBounds(const Square &square) {
+    if (square.row >= 8 || square.row < 0 || square.col >= 8 || square.col < 0) {
+        return false;
+    }
+    return true;
+}
 
 
 

@@ -7,7 +7,6 @@
 class Pawn : public Piece {
 private:
     bool hasDoubleMoved = false;
-    bool squareIsInBounds(const Square& square);
 
 public:
     Pawn() = default;

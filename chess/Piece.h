@@ -53,6 +53,7 @@ public:
     char getColor () const;
     void setHasMoved(bool moved);
     bool getHasMoved() const;
+    bool squareIsInBounds(const Square& square);
     virtual std::vector<Square> getTargetSquares(const Square& start, const std::array<std::array<Piece*, 8>, 8>& board, char startColor, char oppositeColor, const Move& lastMove);
     virtual int getPieceType() const;
 

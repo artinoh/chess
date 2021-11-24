@@ -2,11 +2,7 @@
 
 Pawn::Pawn(char color) {
     this->color = color;
-
-
 }
-
-
 
 std::vector<Square> Pawn::getTargetSquares(const Square &start, const std::array<std::array<Piece*, 8>, 8>& board, char startColor, char oppositeColor, const Move& lastMove) {
     std::vector<Square> targetSquares;
@@ -129,11 +125,6 @@ std::vector<Square> Pawn::getAttackingSquares(const Square &start, const std::ar
     return attackingSquares;
 }
 
-bool Pawn::squareIsInBounds(const Square &square) {
-    if (square.row >= 8 || square.row < 0 || square.col >= 8 || square.col < 0) {
-        return false;
-    }
-    return true;
-}
+
 
 
