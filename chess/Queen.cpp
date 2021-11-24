@@ -159,9 +159,4 @@ std::vector<Square> Queen::getTargetSquares(const Square &start, const std::arra
     return queenMoves;
 }
 
-Queen::Queen(char color, int inRow, int inCol) {
-    this->color = color;
-    this->row = inRow;
-    this->col = inCol;
-}
 

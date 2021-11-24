@@ -44,10 +44,6 @@ void GameState::handleInput() {
                     }
                     chess.drawCleanBoard();
                     break;
-                case sf::Event::KeyPressed:
-                    int numPositions = chess.moveGenererationTest(1);
-                    std::cout << "Num Possible Positions: " << numPositions << std::endl;
-                    break;
             }
         }
     }

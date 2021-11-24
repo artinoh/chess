@@ -122,7 +122,7 @@ int Chess::minimax(int depth, bool isMax, int alpha, int beta) {
             undoMove();
             alpha = std::max(alpha, best);
             if (alpha >= beta) {
-                break;
+                return best;
             }
         }
         return best;
@@ -137,13 +137,12 @@ int Chess::minimax(int depth, bool isMax, int alpha, int beta) {
             undoMove();
             beta = std::min(beta, best);
             if (alpha >= beta) {
-                break;
+                return best;
             }
         }
         return best;
     }
 }
-
 
 std::vector<Move> Chess::getAllPossibleMoves(char teamColor) {
     std::vector<Move> allPossibleMoves;
@@ -159,6 +158,5 @@ std::vector<Move> Chess::getAllPossibleMoves(char teamColor) {
             }
         }
     }
-    std::shuffle(allPossibleMoves.begin(), allPossibleMoves.end(), std::mt19937(std::random_device()()));
     return allPossibleMoves;
 }

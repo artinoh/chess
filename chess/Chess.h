@@ -34,7 +34,6 @@ private:
     std::deque<std::array<std::array<Piece*, 8>, 8>> previousPositions;
     std::deque<Move> moves;
 
-
     std::vector<Square> getPotentialMovesFromSquare(const Square& start);
     void initPieces();
     void initBoardSquares();
@@ -50,7 +49,6 @@ private:
     bool isKingAttacked(char teamColor);
     int numMovesAvailable(char teamColor);
 
-
     //MiniMaxStuff
     const int pawnValue = 100;
     const int knightValue = 300;
@@ -62,21 +60,22 @@ private:
     int minimax(int depth, bool isMax, int alpha, int beta);
     std::vector<Move> getAllPossibleMoves(char teamColor);
 
-
 public:
+
+
     Chess() = default;
     ~Chess();
     explicit Chess(gameDataRef inData);
     bool checkLegalMove(Move& move);
-
-
     bool isLegalMove(Move& move);
+
+
+
     void makeMove(Move& move);
     virtual void draw(sf::RenderTarget& window, sf::RenderStates states) const;
     void drawLegalMoves(const Square& start);
     void undoMove();
     void drawCleanBoard();
-    bool areTwoPiecesAtackingEachother(const Square& firstPiece, const Square& secondPiece);
 
     bool isClickedOnWhitePiece(const Square& start);
 
@@ -87,7 +86,6 @@ public:
     Move getComputerMove();
     Move getComputerMove(bool test);
 
-    int moveGenererationTest(int depth);
 };
 
 

@@ -84,9 +84,4 @@ std::vector<Square> Rook::getTargetSquares(const Square &start, const std::array
     return rookMoves;
 }
 
-Rook::Rook(char color, int inRow, int inCol) {
-    this->color = color;
-    this->row = inRow;
-    this->col = inCol;
-}
 

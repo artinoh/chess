@@ -92,8 +92,3 @@ std::vector<Square> Bishop::getTargetSquares(const Square &start, const std::arr
     return  bishopMoves;
 }
 
-Bishop::Bishop(char color, int inRow, int inCol) {
-    this->color = color;
-    this->row = inRow;
-    this->col = inCol;
-}

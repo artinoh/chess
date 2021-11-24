@@ -136,8 +136,4 @@ bool Pawn::squareIsInBounds(const Square &square) {
     return true;
 }
 
-Pawn::Pawn(char color, int inRow, int inCol) {
-    this->color = color;
-    this->row = inRow;
-    this->col = inCol;
-}
+

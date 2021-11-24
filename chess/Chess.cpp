@@ -80,14 +80,14 @@ void Chess::initPieces() {
         whitePawns[i] = new Pawn('W');
         pieceBoard[6][i] = whitePawns[i];
     }
-    Rook* whiteLeftRook = new Rook('W', 7, 0);
-    Knight* whiteleftKnight = new Knight('W', 7, 1);
-    Bishop* whiteLeftBishop = new Bishop('W', 7, 2);
-    Queen* whiteQueen = new Queen('W', 7, 3);
-    King* whiteKing = new King('W', 7, 4);
-    Bishop* whiteRightBishop = new Bishop('W', 7, 5);
-    Knight* whiteRightKnight = new Knight('W', 7, 6);
-    Rook* whiteRightRook = new Rook('W', 7, 7);
+    Rook* whiteLeftRook = new Rook('W');
+    Rook* whiteRightRook = new Rook('W');
+    Knight* whiteleftKnight = new Knight('W');
+    Knight* whiteRightKnight = new Knight('W');
+    Bishop* whiteLeftBishop = new Bishop('W');
+    Bishop* whiteRightBishop = new Bishop('W');
+    Queen* whiteQueen = new Queen('W');
+    King* whiteKing = new King('W');
 
     pieceBoard[7][0] = whiteLeftRook;
     pieceBoard[7][1] = whiteleftKnight;
@@ -98,20 +98,21 @@ void Chess::initPieces() {
     pieceBoard[7][6] = whiteRightKnight;
     pieceBoard[7][7] = whiteRightRook;
 
+
     std::array<Pawn*, 8> blackPawns;
     for (int i=0; i<blackPawns.size(); i++) {
         blackPawns[i] = new Pawn('B');
         pieceBoard[1][i] = blackPawns[i];
     }
 
-    Rook* blackLeftRook = new Rook('B', 0, 0);
-    Knight* blackleftKnight = new Knight('B',0, 1);
-    Bishop* blackLeftBishop = new Bishop('B',0, 2);
-    Queen* blackQueen = new Queen('B',0, 3);
-    King* blackKing = new King('B',0, 4);
-    Bishop* blackRightBishop = new Bishop('B',0, 5);
-    Knight* blackRightKnight = new Knight('B',0, 6);
-    Rook* blackRightRook = new Rook('B',0, 7);
+    Rook* blackLeftRook = new Rook('B');
+    Rook* blackRightRook = new Rook('B');
+    Knight* blackleftKnight = new Knight('B');
+    Knight* blackRightKnight = new Knight('B');
+    Bishop* blackRightBishop = new Bishop('B');
+    Bishop* blackLeftBishop = new Bishop('B');
+    Queen* blackQueen = new Queen('B');
+    King* blackKing = new King('B');
 
     pieceBoard[0][0] = blackLeftRook;
     pieceBoard[0][1] = blackleftKnight;
@@ -121,6 +122,7 @@ void Chess::initPieces() {
     pieceBoard[0][5] = blackRightBishop;
     pieceBoard[0][6] = blackRightKnight;
     pieceBoard[0][7] = blackRightRook;
+
 
     for (int i=2; i<6; i++) {
         for (int j=0; j<8; j++) {
@@ -208,11 +210,6 @@ void Chess::drawLegalMoves(const Square &start) {
     }
 }
 
-//Checks if a move is legal
-//Does potential move
-//Checks if king is safe
-//undoes move
-//returns king is safe
 bool Chess::checkLegalMove(Move &move) {
     char currentPieceColor = pieceBoard[move.start.row][move.start.col]->getColor();
     char oppositeColor;
@@ -232,7 +229,6 @@ bool Chess::checkLegalMove(Move &move) {
     return isKingSafe;
 }
 
-
 bool Chess::isKingAttacked(char teamColor) {
     //Make this a member variable
     Square currentKingSquare = findKing(teamColor);
@@ -249,7 +245,7 @@ bool Chess::isKingAttacked(char teamColor) {
 
     //get column / row of king
     //get diagonal of king
-    //only check htose
+    //only check those
 
     std::vector<std::vector<Square>> oppositeColorAttacking = getAllAttacking(oppositeColor);
     bool isKingAttacked = false;
@@ -280,18 +276,20 @@ void Chess::processMove(Move &move) {
         }
     }
 
-
     //Handle En Passant
     if (move.target.enPassant) {
         enPassant(move.target, currentPieceColor);
     }
+
     //Handle Castles
     if (move.target.castle) {
         castle(move.target, currentPieceColor);
     }
+
     //Complete Move
     pieceBoard[move.target.row][move.target.col] = pieceBoard[move.start.row][move.start.col];
     pieceBoard[move.start.row][move.start.col] = &emptyPiece;
+
 
     //Queening Pawn
     if (currentPieceType == PAWN && currentPieceColor == 'W' && move.target.row == 0) {
@@ -319,7 +317,6 @@ std::vector<Square> Chess::getLegalMovesFromSquare(const Square& start) {
     }
     return legalTargets;
 }
-
 
 //checks if input move is contained in legal targets
 bool Chess::isLegalMove(Move &move) {
@@ -546,34 +543,6 @@ bool Chess::isClickedOnWhitePiece(const Square &start) {
     return false;
 }
 
-int Chess::moveGenererationTest(int depth) {
-    if (depth == 0) {
-        return 1;
-    }
-    int numPositions = 0;
-    std::vector<Move> allMoves = getAllPossibleMoves('W');
-    std::vector<Move> allBlackMoves = getAllPossibleMoves('B');
-    allMoves.insert(allMoves.end(), allBlackMoves.begin(), allBlackMoves.end());
-    for (int i=0; i < allMoves.size(); i++) {
-        makeMove(allMoves[i]);
-        numPositions += moveGenererationTest(depth -1);
-        undoMove();
-    }
-    return numPositions;
-
-}
-
-bool Chess::areTwoPiecesAtackingEachother(const Square &firstPiece, const Square &secondPiece) {
-    std::vector<Square> firstPieceAttacking = getLegalMovesFromSquare(firstPiece);
-
-
-    for (int i=0; i<firstPieceAttacking.size(); i++) {
-        if (firstPieceAttacking[i] == secondPiece)
-            return true;
-    }
-
-    return false;
-}
 
 
 
