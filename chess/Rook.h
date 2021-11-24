@@ -8,7 +8,6 @@ class Rook : public Piece {
 public:
     Rook() = default;
     explicit Rook(char color);
-    Rook(char color, int inRow, int inCol);
     std::vector<Square> getTargetSquares(const Square& start, const std::array<std::array<Piece*, 8>, 8>& board, char startColor, char oppositeColor, const Move& lastMove) override;
     int getPieceType() const override;
 };
