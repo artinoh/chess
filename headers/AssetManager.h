@@ -15,7 +15,7 @@ public:
 
     void loadTexture(const std::string& name, const std::string& fileName);
     void loadTexture(const std::string& name, const sf::Texture& texture);
-    sf::Texture &getTexture(const std::string& name) const;
+    [[nodiscard]] sf::Texture &getTexture(const std::string& name) const;
 };
 
 

@@ -1,8 +1,5 @@
 #include <random>
-
 #include "Chess.h"
-
-
 
 int Chess::evaluate() {
     MaterialCountEvaluation materialEvals = countMaterial();
@@ -60,9 +57,8 @@ Move Chess::getComputerMove(bool test) {
         for (int j=0; j<8; j++) {
             if (pieceBoard[i][j]->getColor() == 'B') {
                 std::vector<Square> movesFromSquare = getLegalMovesFromSquare({i,j});
-                for (int k=0; k<movesFromSquare.size(); k++) {
+                for (auto targetSquare : movesFromSquare) {
                     Square startSquare(i,j);
-                    Square targetSquare = movesFromSquare[k];
                     allPossibleMoves.emplace_back(startSquare,targetSquare);
                 }
             }
@@ -79,12 +75,12 @@ Move Chess::getComputerMove() {
     int bestMoveValue = INT_MIN;
 
     //Iterate through moves to find best
-    for (int i=0; i<allPossibleMoves.size(); i++) {
-        makeMove(allPossibleMoves[i]);
+    for (auto & allPossibleMove : allPossibleMoves) {
+        makeMove(allPossibleMove);
         int moveVal = minimax(2, false, INT_MIN, INT_MAX);
         undoMove();
         if (moveVal > bestMoveValue) {
-            bestMove = allPossibleMoves[i];
+            bestMove = allPossibleMove;
             bestMoveValue = moveVal;
         }
     }
@@ -116,8 +112,8 @@ int Chess::minimax(int depth, bool isMax, int alpha, int beta) {
         int best = INT_MIN;
         allPossibleMoves = getAllPossibleMoves('B');
 
-        for (int i=0; i<allPossibleMoves.size(); i++) {
-            makeMove(allPossibleMoves[i]);
+        for (auto & allPossibleMove : allPossibleMoves) {
+            makeMove(allPossibleMove);
             best = std::max(best, minimax(depth-1, false, alpha, beta));
             undoMove();
             alpha = std::max(alpha, best);
@@ -131,8 +127,8 @@ int Chess::minimax(int depth, bool isMax, int alpha, int beta) {
         int best = INT_MAX;
         allPossibleMoves = getAllPossibleMoves('W');
 
-        for (int i=0; i<allPossibleMoves.size(); i++) {
-            makeMove(allPossibleMoves[i]);
+        for (auto & allPossibleMove : allPossibleMoves) {
+            makeMove(allPossibleMove);
             best = std::min(best, minimax(depth-1, true, alpha, beta));
             undoMove();
             beta = std::min(beta, best);
@@ -150,9 +146,8 @@ std::vector<Move> Chess::getAllPossibleMoves(char teamColor) {
         for (int j=0; j<8; j++) {
             if (pieceBoard[i][j]->getColor() == teamColor) {
                 std::vector<Square> movesFromSquare = getLegalMovesFromSquare({i,j});
-                for (int k=0; k<movesFromSquare.size(); k++) {
+                for (auto targetSquare : movesFromSquare) {
                     Square startSquare(i,j);
-                    Square targetSquare = movesFromSquare[k];
                     allPossibleMoves.emplace_back(startSquare,targetSquare);
                 }
             }

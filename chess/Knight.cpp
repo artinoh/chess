@@ -57,11 +57,6 @@ std::vector<Square> Knight::getTargetSquares(const Square &start, const std::arr
         knightMoves.push_back(squaretoCheck);
     }
 
-    for (int i=0; i<knightMoves.size(); i++) {
-        knightMoves[i].enPassant = false;
-        knightMoves[i].castle = false;
-    }
-
     return knightMoves;
 }
 

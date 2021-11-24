@@ -26,7 +26,7 @@ void GameOverState::init() {
 }
 
 void GameOverState::handleInput() {
-    sf::Event event;
+    sf::Event event{};
     while (data->window.pollEvent(event)) {
         if (event.type == sf::Event::Closed) {
             data->window.close();

@@ -9,7 +9,6 @@
 #include "Definitions.h"
 #include <iostream>
 
-
 struct Square {
     int row, col;
     bool enPassant = false;
@@ -24,7 +23,6 @@ struct Square {
 
 struct Move {
     Square start, target;
-    bool tookPiece = false;
     Move() = default;
     Move(Square inStart, Square inTarget) : start(inStart), target(inTarget) {}
     bool operator ==(const Move& b) const {
@@ -43,15 +41,11 @@ enum PieceType {
     KING
 };
 
-
 class Piece {
 
 protected:
     char color;
     bool hasMoved = false;
-    int row;
-    int col;
-
 
 public:
     Piece();

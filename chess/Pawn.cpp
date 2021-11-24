@@ -22,10 +22,10 @@ std::vector<Square> Pawn::getTargetSquares(const Square &start, const std::array
                 }
             }
             //Attacking
-            if (board[start.row-1][start.col+1]->getColor() == oppositeColor && start.row-1 && start.col+1 < 8) {
+            if (board[start.row-1][start.col+1]->getColor() == oppositeColor && start.row-1 >= 0 && start.col+1 < 8) {
                 targetSquares.emplace_back(start.row-1, start.col+1);
             }
-            if (board[start.row-1][start.col-1]->getColor() == oppositeColor && start.col-1 >= 0) {
+            if (board[start.row-1][start.col-1]->getColor() == oppositeColor && start.row-1 >= 0 && start.col-1 >= 0) {
                 targetSquares.emplace_back(start.row-1,start.col-1);
             }
             if (start.row == 3) {
@@ -60,10 +60,10 @@ std::vector<Square> Pawn::getTargetSquares(const Square &start, const std::array
                     targetSquares.emplace_back(start.row+2, start.col);
                 }
             }
-            if (board[start.row+1][start.col+1]->getColor() == oppositeColor) {
+            if (board[start.row+1][start.col+1]->getColor() == oppositeColor && start.row +1 < 8 && start.col+1 < 8) {
                 targetSquares.emplace_back(start.row+1, start.col+1);
             }
-            if (board[start.row+1][start.col-1]->getColor() == oppositeColor) {
+            if (board[start.row+1][start.col-1]->getColor() == oppositeColor && start.row +1 < 7 && start.col -1 >= 0) {
                 targetSquares.emplace_back(start.row+1,start.col-1);
             }
             if (start.row == 4) {

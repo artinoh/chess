@@ -24,10 +24,10 @@ private:
 public:
     GameState() = default;
     explicit GameState(gameDataRef inData);
-    void init();
-    void handleInput();
-    void update();
-    void draw();
+    void init() override;
+    void handleInput() override;
+    void update() override;
+    void draw() override;
 
 };
 

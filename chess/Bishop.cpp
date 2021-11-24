@@ -88,7 +88,6 @@ std::vector<Square> Bishop::getTargetSquares(const Square &start, const std::arr
         tempCol++;
     }
 
-
     return  bishopMoves;
 }
 
